@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Set;
-
+import org.openqa.selenium.Cookie;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -30,16 +30,7 @@ public class GenericActions {
     public static void click(By locator) { getWait().until(ExpectedConditions.elementToBeClickable(locator)).click(); }
     public static void click(WebElement element) { getWait().until(ExpectedConditions.elementToBeClickable(element)).click(); }
     
-    public static void sendKeys(By locator, String text) { 
-        WebElement el = getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
-        el.clear(); el.sendKeys(text); 
-    }
-    public static void sendKeys(WebElement element, String text) {
-        getWait().until(ExpectedConditions.visibilityOf(element));
-        element.clear(); element.sendKeys(text);
-    }
-
-    // --- 2. ADVANCED MOUSE ACTIONS (OVERLOADED) ---
+     // --- 2. ADVANCED MOUSE ACTIONS (OVERLOADED) ---
     public static void doubleClick(WebElement element) { getActions().doubleClick(element).perform(); }
     public static void rightClick(WebElement element) { getActions().contextClick(element).perform(); }
     public static void dragAndDrop(WebElement source, WebElement target) { getActions().dragAndDrop(source, target).perform(); }
@@ -91,4 +82,39 @@ public class GenericActions {
         try { FileUtils.copyFile(src, new File(path)); } catch (IOException e) { e.printStackTrace(); }
         return path;
     }
+
+    // -- 10. SendKeys (OVERLOADED) ---
+    public static void sendKeys(By locator, String text) {  WebElement el = getWait().until(ExpectedConditions.visibilityOfElementLocated(locator)); el.clear(); el.sendKeys(text); }
+    public static void sendKeys(WebElement element, String text) {getWait().until(ExpectedConditions.visibilityOf(element));element.clear(); element.sendKeys(text);}
+
+        // --- 10. SECURITY & BYPASS STRATEGIES (FOR PROD/STAGE) ---
+
+    /**
+     * Simulation of fetching an OTP via a backend API or Mock Service.
+     * In a real project, use RestAssured to call an endpoint like /api/get-otp/{user}
+     */
+    public static String getOTPFromBackend(String userEmail) {
+        System.out.println("LOG: Fetching OTP for " + userEmail + " via Backend API...");
+        // Mocking the return of a 6-digit code
+        return "123456"; 
+    }
+
+    /**
+     * Handles 'Invisible CAPTCHA' by injecting a bypass token or using a whitelisted key.
+     */
+    public static void bypassCaptchaWithToken(WebElement captchaInput, String bypassToken) {
+        System.out.println("LOG: Applying CAPTCHA Bypass Token for Automation User...");
+        captchaInput.sendKeys(bypassToken);
+    }
+
+    /**
+     * Helper to add a 'Magic Cookie' that tells the server to skip MFA/CAPTCHA.
+     * Many Prod environments use this for whitelisted IP ranges.
+     */
+    public static void addAutomationBypassCookie(String cookieName, String value) {
+        Cookie bypassCookie = new Cookie(cookieName, value);
+        getDriver().manage().addCookie(bypassCookie);
+        getDriver().navigate().refresh();
+    }
+
 }

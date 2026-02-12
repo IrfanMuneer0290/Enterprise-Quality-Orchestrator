@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Demoblaze Suite">
-    <test name="HomePage Tests">
+<suite name="Suite">
+    <listeners>
+        <listener class-name="com.irfan.ecommerce.util.Listeners" />
+    </listeners>
+    <test name="DemoBlazeTests">
         <classes>
-            <class name="com.irfan.ecommerce.tests.HomePageTest"/>
+            <class name="com.irfan.ecommerce.tests.LoginTest"/>
         </classes>
     </test>
 </suite>

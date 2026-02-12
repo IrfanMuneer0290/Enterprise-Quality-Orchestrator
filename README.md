@@ -50,3 +50,21 @@ src/main/resources
   └── log4j2.xml                 -> Professional Logging Configuration
 src/test/resources
   └── testdata.xlsx              -> External Data Source for Hybrid Execution
+
+
+## 🚀 Upcoming Enhancements (Roadmap)
+
+### 🏗️ Infrastructure & Scalability
+- [ ] **Parallel Execution & Thread-Safety:** Refactoring `DriverFactory` with `ThreadLocal<WebDriver>` to support concurrent test execution via TestNG XML, reducing suite runtime by **70%**.
+- [ ] **Headless Execution:** Implementation of `ChromeOptions` for seamless integration with **CI/CD / Headless environments**.
+- [ ] **Dockerization:** Containerizing the framework using **Selenium Grid & Docker Compose** for cross-browser infrastructure as code.
+
+### 🧪 Advanced Testing Strategies
+- [ ] **API Automation Layer:** Integrating **RestAssured** to build a true **Full-Stack Hybrid Framework** for validating backend business logic.
+- [ ] **Consumer-Driven Contract Testing:** Implementing **Pact.io** to validate integrations between microservices and prevent breaking changes in the API provider.
+- [ ] **Performance Benchmarking:** Adding **JMeter** or **Gatling** hooks to measure page load times during UI regression.
+
+### 🔄 CI/CD & DevOps
+- [ ] **GitHub Actions Integration:** Automated triggers for every `git push` with Slack notifications for build status.
+- [ ] **Cloud Execution:** Integration with **BrowserStack / SauceLabs** for massive cross-platform device coverage.
+

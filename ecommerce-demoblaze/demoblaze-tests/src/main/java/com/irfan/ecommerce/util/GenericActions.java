@@ -14,6 +14,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -24,8 +25,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.irfan.ecommerce.base.DriverFactory;
 
 /**
- * GenericActions: Professional Abstraction Layer
- * Features: Self-Healing, Log4j 2, Smart Parsing, and Exception Handling.
+ * GenericActions: Enterprise-Grade Abstraction Layer.
+ * Features: Self-Healing, Log4j 2, Automated Screenshot on Failure, and Custom Exception Handling.
  * @author Irfan Muneer
  */
 public class GenericActions {
@@ -37,7 +38,7 @@ public class GenericActions {
     private static WebDriverWait getShortWait() { return new WebDriverWait(getDriver(), Duration.ofSeconds(2)); }
     private static Actions getActions() { return new Actions(getDriver()); }
 
-    /** Parses String to By object (e.g., "id:login2" or "xpath://button"). */
+    /** Translates String to By object with Strategy support. */
     private static By parseBy(String locator, String... replacements) {
         String processed = (replacements.length > 0) ? String.format(locator, (Object[]) replacements) : locator;
         if (processed.contains(":")) {
@@ -57,48 +58,41 @@ public class GenericActions {
         return (processed.startsWith("//") || processed.startsWith("(")) ? By.xpath(processed) : By.id(processed);
     }
 
-    /** Core Self-Healing Engine. */
+    /** The Heart: Self-Healing Element Finder. */
     private static WebElement findElementSmartly(String[] locators, String... replacements) {
         for (String loc : locators) {
             try {
                 By by = parseBy(loc, replacements);
                 return getShortWait().until(ExpectedConditions.visibilityOfElementLocated(by));
             } catch (Exception e) {
-                log.debug("Backup triggered. Failed to find: {}", loc);
+                log.debug("RETRY: Primary locator [{}] failed. Attempting next backup...", loc);
             }
         }
-        log.error("FATAL: All locators failed: {}", String.join(", ", locators));
-        throw new NoSuchElementException("All locators failed.");
+        log.error("FATAL: Exhausted all {} locators without success.", locators.length);
+        throw new NoSuchElementException("CRITICAL: All locators failed for priority list: " + String.join(", ", locators));
     }
 
     // --- 1. NAVIGATION ---
     public static void navigateTo(String url) {
         try {
             getDriver().get(url);
-            log.info("Navigated to: {}", url);
+            log.info("NAV: Successfully navigated to URL: {}", url);
         } catch (Exception e) {
-            log.error("Navigation failed to {}: {}", url, e.getMessage());
+            log.error("FATAL: Failed to reach {}. Error: {}", url, e.getMessage());
+            throw new RuntimeException("Navigation Failure", e);
         }
     }
 
-    public static void refreshPage() {
-        try {
-            getDriver().navigate().refresh();
-            log.info("Page refreshed.");
-        } catch (Exception e) {
-            log.error("Refresh failed: {}", e.getMessage());
-        }
-    }
-
-    // --- 2. INTERACTIONS (SELF-HEALING) ---
+    // --- 2. CORE INTERACTIONS (PRO-CATCH) ---
     public static void click(String[] locators, String... replacements) {
         try {
             WebElement el = findElementSmartly(locators, replacements);
             getWait().until(ExpectedConditions.elementToBeClickable(el)).click();
-            log.info("Element clicked successfully.");
+            log.info("ACTION: Clicked element successfully.");
         } catch (Exception e) {
-            log.error("Click failed: {}", e.getMessage());
-            throw e;
+            String path = takeScreenshot("Click_Failure");
+            log.error("FATAL: Click failed. Evidence: {}. Trace: {}", path, e.getMessage());
+            throw new RuntimeException("Interaction Error: Click", e);
         }
     }
 
@@ -107,20 +101,21 @@ public class GenericActions {
             WebElement el = findElementSmartly(locators, replacements);
             el.clear();
             el.sendKeys(text);
-            log.info("Typed [{}] into field.", text);
+            log.info("ACTION: Typed [{}] into field.", text);
         } catch (Exception e) {
-            log.error("Type failed: {}", e.getMessage());
-            throw e;
+            takeScreenshot("Type_Failure");
+            log.error("FATAL: Input failed on locators {}. Error: {}", locators, e.getMessage());
+            throw new RuntimeException("Input Error: SendKeys", e);
         }
     }
 
     public static String getText(String[] locators, String... replacements) {
         try {
             String text = findElementSmartly(locators, replacements).getText();
-            log.info("Text retrieved: {}", text);
+            log.info("DATA: Retrieved UI Text: {}", text);
             return text;
         } catch (Exception e) {
-            log.error("GetText failed: {}", e.getMessage());
+            log.warn("WARN: GetText failed, returning empty string. Trace: {}", e.getMessage());
             return "";
         }
     }
@@ -130,120 +125,85 @@ public class GenericActions {
         try {
             WebElement el = findElementSmartly(locators, replacements);
             ((JavascriptExecutor) getDriver()).executeScript("arguments[0].click();", el);
-            log.info("JS Click performed.");
+            log.info("JS: Executed JavaScript Click.");
         } catch (Exception e) {
-            log.error("JS Click failed: {}", e.getMessage());
+            log.error("JS_ERROR: JS Click failed: {}", e.getMessage());
         }
     }
 
-    public static void jsScroll(String[] locators, String... replacements) {
-        try {
-            WebElement el = findElementSmartly(locators, replacements);
-            ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", el);
-            log.info("Scrolled to element via JS.");
-        } catch (Exception e) {
-            log.error("JS Scroll failed: {}", e.getMessage());
-        }
-    }
-
-    // --- 4. MOUSE ACTIONS ---
-    public static void hover(String[] locators, String... replacements) {
-        try {
-            getActions().moveToElement(findElementSmartly(locators, replacements)).perform();
-            log.info("Mouse hover performed.");
-        } catch (Exception e) {
-            log.error("Hover failed: {}", e.getMessage());
-        }
-    }
-
-    public static void doubleClick(String[] locators, String... replacements) {
-        try {
-            getActions().doubleClick(findElementSmartly(locators, replacements)).perform();
-            log.info("Double-click performed.");
-        } catch (Exception e) {
-            log.error("Double-click failed: {}", e.getMessage());
-        }
-    }
-
-    // --- 5. DROPDOWNS ---
+    // --- 4. DROPDOWNS ---
     public static void selectByText(String[] locators, String text, String... replacements) {
         try {
-            new Select(findElementSmartly(locators, replacements)).selectByVisibleText(text);
-            log.info("Selected dropdown option: {}", text);
+            WebElement el = findElementSmartly(locators, replacements);
+            new Select(el).selectByVisibleText(text);
+            log.info("SELECT: Option [{}] chosen from dropdown.", text);
         } catch (Exception e) {
-            log.error("Dropdown selection failed: {}", e.getMessage());
+            takeScreenshot("Select_Failure");
+            log.error("FATAL: Dropdown selection failed. Error: {}", e.getMessage());
+            throw new RuntimeException("Select Error", e);
         }
     }
 
-    // --- 6. ALERTS ---
+    // --- 5. ALERTS ---
     public static void handleAlert(boolean accept) {
         try {
             Alert alert = getWait().until(ExpectedConditions.alertIsPresent());
-            if (accept) { alert.accept(); log.info("Alert accepted."); }
-            else { alert.dismiss(); log.info("Alert dismissed."); }
-        } catch (Exception e) {
-            log.warn("No alert found.");
+            String text = alert.getText();
+            if (accept) { alert.accept(); log.info("ALERT: Accepted. Text was: {}", text); }
+            else { alert.dismiss(); log.info("ALERT: Dismissed."); }
+        } catch (TimeoutException e) {
+            log.warn("ALERT: No alert appeared within timeout.");
         }
     }
 
-    // --- 7. WINDOWS ---
+    // --- 6. WINDOWS & FRAMES ---
     public static void switchToWindow(String title) {
         try {
-            String current = getDriver().getWindowHandle();
             for (String handle : getDriver().getWindowHandles()) {
                 getDriver().switchTo().window(handle);
                 if (getDriver().getTitle().contains(title)) {
-                    log.info("Switched to window: {}", title);
+                    log.info("WINDOW: Switched focus to: {}", title);
                     return;
                 }
             }
-            getDriver().switchTo().window(current);
         } catch (Exception e) {
-            log.error("Window switch failed: {}", e.getMessage());
+            log.error("WINDOW_ERROR: Switch failed: {}", e.getMessage());
         }
     }
 
-    // --- 8. FRAMES ---
     public static void switchToFrame(String[] locators, String... replacements) {
         try {
-            getDriver().switchTo().frame(findElementSmartly(locators, replacements));
-            log.info("Switched to iframe.");
+            WebElement frame = findElementSmartly(locators, replacements);
+            getDriver().switchTo().frame(frame);
+            log.info("FRAME: Focused inside iframe.");
         } catch (Exception e) {
-            log.error("Frame switch failed: {}", e.getMessage());
+            log.error("FRAME_ERROR: Switch failed: {}", e.getMessage());
+            throw new RuntimeException("Frame Switch Error", e);
         }
     }
 
-    public static void exitFrame() {
-        try {
-            getDriver().switchTo().defaultContent();
-            log.info("Exited frame.");
-        } catch (Exception e) {
-            log.error("Exit frame failed: {}", e.getMessage());
-        }
-    }
-
-    // --- 9. VERIFICATION ---
+    // --- 7. VERIFICATION ---
     public static boolean isDisplayed(String[] locators, String... replacements) {
         try {
-            boolean visible = findElementSmartly(locators, replacements).isDisplayed();
-            log.info("Display status: {}", visible);
-            return visible;
+            return findElementSmartly(locators, replacements).isDisplayed();
         } catch (Exception e) {
+            log.debug("VERIFY: Element not displayed on UI.");
             return false;
         }
     }
 
-    // --- 10. SCREENSHOT & COOKIES ---
+    // --- 8. SYSTEM UTILS ---
     public static String takeScreenshot(String name) {
         try {
             File src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-            String path = System.getProperty("user.dir") + "/screenshots/" + name + "_" + System.currentTimeMillis() + ".png";
+            String folder = System.getProperty("user.dir") + "/target/screenshots/";
+            new File(folder).mkdirs(); // Ensure directory exists
+            String path = folder + name + "_" + System.currentTimeMillis() + ".png";
             FileUtils.copyFile(src, new File(path));
-            log.info("Screenshot saved: {}", path);
             return path;
         } catch (IOException e) {
-            log.error("Screenshot failed: {}", e.getMessage());
-            return "";
+            log.error("IO_ERROR: Could not save screenshot: {}", e.getMessage());
+            return "NULL_PATH";
         }
     }
 

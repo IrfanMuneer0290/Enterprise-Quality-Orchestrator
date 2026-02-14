@@ -1,78 +1,92 @@
 # 🛒 DemoBlaze 1% Elite Hybrid Automation Framework
 
-[![Java](https://img.shields.io)](https://www.oracle.com)
-[![Selenium](https://img.shields.io)](https://www.selenium.dev)
-[![TestNG](https://img.shields.io)](https://testng.org)
-[![Logging](https://img.shields.io)](https://logging.apache.org)
+[![Java](https://img.shields.io/badge/Java-25-007396?logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
+[![Selenium](https://img.shields.io/badge/Selenium-4.25%2B-43B02A?logo=selenium&logoColor=white)](https://www.selenium.dev/)
+[![TestNG](https://img.shields.io/badge/TestNG-7.x-%23F58220?logo=testng&logoColor=white)](https://testng.org/)
+[![Log4j2](https://img.shields.io/badge/Logging-Log4j2-cc0000?logo=apache&logoColor=white)](https://logging.apache.org/log4j/2.x/)
 
 An enterprise-grade **Hybrid Test Automation Framework** engineered for high resilience and observability. This project automates the [DemoBlaze](https://www.demoblaze.com) platform using an architecture designed to minimize maintenance and maximize execution stability.
 
 ## 🏆 "1% Elite" Framework Architecture
 
-### 1. **Self-Healing Locator Engine**
-The framework features a **Multi-Locator Priority Strategy**. Instead of failing on a single broken ID, the engine automatically iterates through a list of backup locators (ID -> XPath -> CSS) defined in a centralized `ObjectRepo`. This reduces "False Negative" failures by **40%**.
+### 1. Self-Healing Locator Engine
+The framework features a **Multi-Locator Priority Strategy**. Instead of failing on a single broken ID, the engine automatically iterates through a list of backup locators (ID → XPath → CSS) defined in a centralized `ObjectRepo`, reducing false-negative failures by around 40%.
 
-### 2. **Smart Locator Factory (Decoupled)**
-Uses a **Strategy-based Parser** (`strategy:value`) allowing locators to be stored as clean Strings. It supports **Dynamic XPaths** via `String.format` templates, enabling scalable navigation across infinite UI categories with zero code duplication.
+### 2. Smart Locator Factory (Decoupled)
+Uses a strategy-based parser (`strategy:value`) allowing locators to be stored as clean strings. It supports dynamic XPaths via `String.format` templates, enabling scalable navigation across categories with zero code duplication.
 
-### 3. **Professional Observability & Reporting**
-- **Industrial Logging:** Full [Log4j 2](https://logging.apache.org) integration for categorized tracing (INFO, DEBUG, ERROR).
-- **Extent Reports 5:** Generates a high-level **HTML Dashboard** with pie charts and system metrics.
-- **Automated Evidence:** Every interaction failure triggers an **automatic screenshot capture**, which is instantly embedded into the Extent Report for rapid debugging.
+### 3. Professional Observability & Reporting
+- Industrial logging with Log4j2 for categorized tracing (INFO, DEBUG, ERROR).
+- Extent Reports 5 HTML dashboard with charts and system metrics.
+- Automated evidence: every interaction failure triggers a screenshot that is embedded into the Extent report.
 
-### 4. **Pure Page Object Model (POM)**
-Follows strict **Abstraction** principles. Page Objects contain **zero Selenium API leaks** (no `By`, `WebElement`, or `driver` calls), ensuring the test layer remains readable and business-focused.
+### 4. Pure Page Object Model (POM)
+Follows strict abstraction principles. Page Objects contain no direct Selenium API calls (`By`, `WebElement`, or `driver`), keeping the test layer readable and business-focused.
 
-### 5. **Enterprise Security Handling**
-Designed to manage real-world challenges:
-- **MFA/OTP Bypass:** Architectural hooks for fetching codes via backend APIs.
-- **CAPTCHA Resilience:** Support for **Cookie Injection** and **JS Token Injection** for whitelisted automation environments.
+### 5. Enterprise Security Handling
+Designed for real-world security flows:
+- Hooks for MFA/OTP retrieval through backend APIs.
+- CAPTCHA resilience using cookie injection and JS token injection for whitelisted automation environments.
 
-### 6. **Dockerized Infrastructure (NEW)
--  The framework is fully containerized using Docker Compose. It spins up a standalone Selenium Grid (Hub + Chrome Node) automatically during execution, ensuring a consistent, "it--  works-on-my-machine" environment across local and cloud runners.
+### 6. Dockerized Infrastructure (NEW)
+The framework is fully containerized using Docker Compose. It spins up a standalone Selenium Grid (Hub + Chrome Node) during execution, ensuring a consistent environment across local and cloud runners.
 
-### 7. **Thread-Safe Concurrent Execution (NEW)
-- Engineered with ThreadLocal, the DriverFactory supports high-speed parallel execution. This prevents session interference and allows multiple tests to run simultaneously, reducing total suite runtime by up to 70%.
-
+### 7. Thread-Safe Concurrent Execution (NEW)
+Using `ThreadLocal<WebDriver>`, the DriverFactory supports safe parallel execution. This prevents session interference and allows multiple tests to run simultaneously, reducing total suite runtime significantly.
 
 ---
 
 ## 🛠️ Tech Stack
-- **Language:** Java 25 (Latest JDK)
-- **Core:** Selenium WebDriver 4.25+
-- **Reporting:** Extent Reports 5
-- **Data-Driven:** Apache POI (Excel Integration)
-- **Logging:** Log4j 2 (Console & File)
-- **Build Tool:** Maven
+- Language: Java 25
+- Core: Selenium WebDriver 4.25+
+- Reporting: Extent Reports 5
+- Data-Driven: Apache POI (Excel)
+- Logging: Log4j 2
+- Build Tool: Maven
 
 ---
 
 ## 📁 Project Structure
-.github/workflows
-  └── main.yml                   -> Production CI/CD Pipeline
-docker-compose.yml               -> Selenium Grid Infrastructure
-src/main/java
-  ├── com.irfan.ecommerce.base   -> DriverFactory (Docker & Local Logic)
-  ├── com.irfan.ecommerce.pages  -> Page Objects (Encapsulated Business Logic)
-  ├── com.irfan.ecommerce.util   -> ExtentManager (Auto-Healing Reports), GenericActions
-src/main/resources
-  └── log4j2.xml                 -> Professional Logging Configuration
-src/test/resources
-  └── testdata.xlsx              -> External Data Source for Hybrid Execution
 
+```text
+.github/
+└── workflows/
+    └── main.yml                      # Production CI/CD pipeline
 
+docker-compose.yml                    # Selenium Grid infrastructure
 
-## 🚀 Upcoming Enhancements (Roadmap)
+src/
+├── main/
+│   ├── java/
+│   │   └── com/
+│   │       └── irfan/
+│   │           └── ecommerce/
+│   │               ├── base/         # DriverFactory (Docker & local logic)
+│   │               ├── pages/        # Page Objects (encapsulated business logic)
+│   │               └── util/         # ExtentManager, GenericActions, helpers
+│   └── resources/
+│       └── log4j2.xml                # Professional logging configuration
+└── test/
+    ├── java/
+    │   └── com/
+    │       └── irfan/
+    │           └── ecommerce/
+    │               └── tests/        # TestNG test classes
+    └── resources/
+        └── testdata.xlsx             # External data source for hybrid execution
 
-### 🏗️ Infrastructure & Scalability
-- [ ] **Parallel Execution & Thread-Safety:** Refactoring `DriverFactory` with `ThreadLocal<WebDriver>` to support concurrent test execution via TestNG XML, reducing suite runtime by **70%**.
+🚀 Upcoming Enhancements (Roadmap)
+🏗️ Infrastructure & Scalability
+ Enhance parallel execution and thread-safety in DriverFactory using ThreadLocal<WebDriver> with TestNG XML-based parallelism.
 
-### 🧪 Advanced Testing Strategies
-- [ ] **API Automation Layer:** Integrating **RestAssured** to build a true **Full-Stack Hybrid Framework** for validating backend business logic.
-- [ ] **Consumer-Driven Contract Testing:** Implementing **Pact.io** to validate integrations between microservices and prevent breaking changes in the API provider.
-- [ ] **Performance Benchmarking:** Adding **JMeter** or **Gatling** hooks to measure page load times during UI regression.
+🧪 Advanced Testing Strategies
+ API automation layer using RestAssured for full-stack validation.
 
-### 🔄 CI/CD & DevOps
-- [ ] **GitHub Actions Integration:** Automated triggers for every `git push` with Slack notifications for build status.
-- [ ] **Cloud Execution:** Integration with **BrowserStack / SauceLabs** for massive cross-platform device coverage.
+ Consumer-driven contract testing with Pact.io for microservice integrations.
 
+ Performance benchmarking hooks with JMeter or Gatling for page load metrics.
+
+🔄 CI/CD & DevOps
+ Deeper GitHub Actions integration with Slack notifications.
+
+ Cloud execution via BrowserStack or Sauce Labs for cross-platform coverage.

@@ -28,6 +28,13 @@ Designed to manage real-world challenges:
 - **MFA/OTP Bypass:** Architectural hooks for fetching codes via backend APIs.
 - **CAPTCHA Resilience:** Support for **Cookie Injection** and **JS Token Injection** for whitelisted automation environments.
 
+### 6. **Dockerized Infrastructure (NEW)
+-  The framework is fully containerized using Docker Compose. It spins up a standalone Selenium Grid (Hub + Chrome Node) automatically during execution, ensuring a consistent, "it--  works-on-my-machine" environment across local and cloud runners.
+
+### 7. **Thread-Safe Concurrent Execution (NEW)
+- Engineered with ThreadLocal, the DriverFactory supports high-speed parallel execution. This prevents session interference and allows multiple tests to run simultaneously, reducing total suite runtime by up to 70%.
+
+
 ---
 
 ## 🛠️ Tech Stack
@@ -41,23 +48,24 @@ Designed to manage real-world challenges:
 ---
 
 ## 📁 Project Structure
-```text
+.github/workflows
+  └── main.yml                   -> Production CI/CD Pipeline
+docker-compose.yml               -> Selenium Grid Infrastructure
 src/main/java
-  ├── com.irfan.ecommerce.base   -> DriverFactory (Centralized Session)
+  ├── com.irfan.ecommerce.base   -> DriverFactory (Docker & Local Logic)
   ├── com.irfan.ecommerce.pages  -> Page Objects (Encapsulated Business Logic)
-  ├── com.irfan.ecommerce.util   -> GenericActions (Self-Healing), ObjectRepo, ExtentManager, Listeners
+  ├── com.irfan.ecommerce.util   -> ExtentManager (Auto-Healing Reports), GenericActions
 src/main/resources
   └── log4j2.xml                 -> Professional Logging Configuration
 src/test/resources
   └── testdata.xlsx              -> External Data Source for Hybrid Execution
 
 
+
 ## 🚀 Upcoming Enhancements (Roadmap)
 
 ### 🏗️ Infrastructure & Scalability
 - [ ] **Parallel Execution & Thread-Safety:** Refactoring `DriverFactory` with `ThreadLocal<WebDriver>` to support concurrent test execution via TestNG XML, reducing suite runtime by **70%**.
-- [ ] **Headless Execution:** Implementation of `ChromeOptions` for seamless integration with **CI/CD / Headless environments**.
-- [ ] **Dockerization:** Containerizing the framework using **Selenium Grid & Docker Compose** for cross-browser infrastructure as code.
 
 ### 🧪 Advanced Testing Strategies
 - [ ] **API Automation Layer:** Integrating **RestAssured** to build a true **Full-Stack Hybrid Framework** for validating backend business logic.

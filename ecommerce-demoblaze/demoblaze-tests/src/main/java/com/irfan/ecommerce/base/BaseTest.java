@@ -10,9 +10,7 @@ public class BaseTest {
     
     @BeforeMethod
     public void setup() {
-         driver = DriverFactory.initDriver("chrome");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        driver = DriverFactory.initDriver("chrome");
         driver.get("https://www.demoblaze.com/");
     }
     

@@ -10,10 +10,15 @@ public class DriverFactory {
     // 1. ThreadLocal container to ensure thread-safety
     private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
      String headless = System.getProperty("headless");
+     
 
     public static WebDriver initDriver(String browser) {
+        if (browser == null || browser.isEmpty()) {
+        browser = "chrome";
+    }
     // FIX: Declare 'headless' as a local String variable inside the static method
     String headless = System.getProperty("headless"); 
+
     
     if (browser.equalsIgnoreCase("chrome")) {
         WebDriverManager.chromedriver().setup();
@@ -23,8 +28,15 @@ public class DriverFactory {
         if (headless != null && headless.equalsIgnoreCase("true")) {
             options.addArguments("--headless=new"); // For Chrome 109+
             options.addArguments("--window-size=1920,1080");
+            options.addArguments("--no-sandbox"); 
+            options.addArguments("--disable-dev-shm-usage"); 
             options.addArguments("--disable-gpu");
         }
+
+        // Wrap maximize in a try-catch or skip for headless
+    if (headless == null || !headless.equalsIgnoreCase("true")) {
+        getDriver().manage().window().maximize();
+    }
         
         tlDriver.set(new ChromeDriver(options));
     }

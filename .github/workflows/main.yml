@@ -23,7 +23,7 @@ jobs:
 
     - name: 🐋 Start Selenium Grid (Docker)
       # This starts the Hub and Chrome Node defined in your docker-compose.yml
-      run: docker-compose up -d
+      run: docker compose up -d
 
     - name: 🏗️ Build and Run Tests
       working-directory: ecommerce-demoblaze/demoblaze-tests
@@ -32,7 +32,7 @@ jobs:
 
     - name: 🛑 Stop Selenium Grid
       if: always()
-      run: docker-compose down
+      run: docker compose down
 
     - name: 📊 Upload Extent Report
       if: always()

@@ -1,12 +1,12 @@
-package com.irfan.ecommerce.tests;
+package com.irfan.ecommerce.ui.tests;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.irfan.ecommerce.base.BaseTest;
-import com.irfan.ecommerce.base.HomePage;
+import com.irfan.ecommerce.ui.base.BaseTest;
+import com.irfan.ecommerce.ui.base.HomePage;
 
 /**
  * HomePageTest: The "Smoke Test" for Business Availability.

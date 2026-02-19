@@ -25,8 +25,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.devtools.v129.network.Network; // Use version matching your Selenium
 import java.util.Optional;
-
-import com.irfan.ecommerce.base.DriverFactory;
+import com.irfan.ecommerce.ui.base.DriverFactory;
 
 /**
  * GenericActions: The "Resilience Layer" of the framework.

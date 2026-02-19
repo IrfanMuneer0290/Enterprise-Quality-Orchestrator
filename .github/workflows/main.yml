@@ -10,6 +10,8 @@ on:
       - 'ecommerce-demoblaze/demoblaze-tests/src/**'
       - 'ecommerce-demoblaze/demoblaze-tests/pom.xml'
       - 'docker-compose.yml'
+      - '.github/workflows/main.yml' 
+  workflow_dispatch: 
 
 jobs:
   build-and-test:

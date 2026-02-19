@@ -6,9 +6,10 @@ on:
     # PROBLEM: We wasted thousands of dollars in cloud costs running 4-hour suites for README fixes.
     # SOLUTION: At Walmart, I introduced 'Path Filtering' to trigger tests only for functional code.
     # RESULT: Improved CI/CD efficiency by 40% and zeroed out wasteful resource usage.
-    - 'ecommerce-demoblaze/demoblaze-tests/src/**'
-    - 'ecommerce-demoblaze/demoblaze-tests/pom.xml'
-    - 'docker-compose.yml'
+    paths:
+      - 'ecommerce-demoblaze/demoblaze-tests/src/**'
+      - 'ecommerce-demoblaze/demoblaze-tests/pom.xml'
+      - 'docker-compose.yml'
 
 jobs:
   build-and-test:
@@ -39,19 +40,20 @@ jobs:
     - name: 🧪 Run Maven Tests
       env:
         SPLUNK_TOKEN: ${{ secrets.SPLUNK_TOKEN }}
+      working-directory: ecommerce-demoblaze/demoblaze-tests
       # PROBLEM: Audit risk if tokens were printed in clear text during failed build logs.
       # SOLUTION: I used 'add-mask' to force GitHub to asterisk out the Splunk token.
       # RESULT: Maintained 100% security compliance for our transaction logging.
       run: |
         echo "::add-mask::$SPLUNK_TOKEN"
         mvn clean test -Dheadless=true -Dexecution_env=remote -Dsplunk.token=$SPLUNK_TOKEN
-      working-directory: ecommerce-demoblaze/demoblaze-tests
+      
 
     - name: 📊 Upload Extent Report
       # PROBLEM: Storing massive videos for passing tests drained our storage quota in days.
       # SOLUTION: I set 'if: failure()' and a 3-day retention policy for artifact management.
       # RESULT: Provided near-instant quality feedback while reducing storage overhead.
-      if: failure()
+      if: always() #failure() - use failure if fail test case report you want
       uses: actions/upload-artifact@v4
       with:
         name: Failure-Report-${{ github.run_id }}

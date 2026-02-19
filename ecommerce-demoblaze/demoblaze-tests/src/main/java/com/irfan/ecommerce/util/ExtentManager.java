@@ -3,6 +3,7 @@ package com.irfan.ecommerce.util;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import java.io.File;
 
 /**
  * ExtentManager: Making sure we actually see what failed.
@@ -16,10 +17,8 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
  * - THE RESULT: We have a clean history of every single run. If something 
  *   breaks at 3 AM in the CI, the proof is right there waiting for me.
  */
-
 public class ExtentManager {
     
-    // Using volatile to ensure visibility across multiple threads in parallel execution
     private static volatile ExtentReports extent;
 
     public static ExtentReports getInstance() {
@@ -34,22 +33,32 @@ public class ExtentManager {
     }
 
     private static ExtentReports createInstance() {
-        java.io.File directory = new java.io.File("reports");
+        // WALMART-SCALE FIX: Explicitly define the report directory relative to the project root
+        String rootPath = System.getProperty("user.dir");
+        File directory = new File(rootPath + "/reports");
+        
         if (!directory.exists()) {
             directory.mkdirs();
         }
 
-        // Dynamic naming prevents data loss in high-frequency CI runs
-        String fileName = "reports/ExecutionReport_" + System.currentTimeMillis() + ".html";
-        ExtentSparkReporter htmlReporter = new ExtentSparkReporter(fileName);
+        // 1. Dynamic naming for local historical archive
+        String timestampedFile = rootPath + "/reports/ExecutionReport_" + System.currentTimeMillis() + ".html";
+        // 2. Static naming (index.html) for reliable GitHub Actions artifact mapping
+        String latestFile = rootPath + "/reports/index.html";
 
-        htmlReporter.config().setTheme(Theme.DARK); // Pro look for enterprise dashboards
-        htmlReporter.config().setDocumentTitle("Walmart-Scale Quality Audit");
-        htmlReporter.config().setEncoding("utf-8");
-        htmlReporter.config().setReportName("Demoblaze Core Regression");
+        ExtentSparkReporter timestampedReporter = new ExtentSparkReporter(timestampedFile);
+        ExtentSparkReporter latestReporter = new ExtentSparkReporter(latestFile);
+
+        // Standardizing the enterprise "Pro" dashboard look
+        latestReporter.config().setTheme(Theme.DARK); 
+        latestReporter.config().setDocumentTitle("Walmart-Scale Quality Audit");
+        latestReporter.config().setEncoding("utf-8");
+        latestReporter.config().setReportName("Demoblaze Core Regression");
 
         extent = new ExtentReports();
-        extent.attachReporter(htmlReporter);
+        // Attach both: ensures CI finds index.html while you keep your history
+        extent.attachReporter(latestReporter, timestampedReporter);
+        
         extent.setSystemInfo("Quality Architect", "Irfan Muneer");
         extent.setSystemInfo("Platform", System.getProperty("os.name"));
         extent.setSystemInfo("Environment", "Staging-Cloud");

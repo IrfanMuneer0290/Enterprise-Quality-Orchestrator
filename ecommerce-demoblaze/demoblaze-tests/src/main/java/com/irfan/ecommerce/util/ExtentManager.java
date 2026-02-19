@@ -33,36 +33,24 @@ public class ExtentManager {
     }
 
     private static ExtentReports createInstance() {
-        // WALMART-SCALE FIX: Explicitly define the report directory relative to the project root
-        String rootPath = System.getProperty("user.dir");
-        File directory = new File(rootPath + "/reports");
-        
-        if (!directory.exists()) {
-            directory.mkdirs();
-        }
-
-        // 1. Dynamic naming for local historical archive
-        String timestampedFile = rootPath + "/reports/ExecutionReport_" + System.currentTimeMillis() + ".html";
-        // 2. Static naming (index.html) for reliable GitHub Actions artifact mapping
-        String latestFile = rootPath + "/reports/index.html";
-
-        ExtentSparkReporter timestampedReporter = new ExtentSparkReporter(timestampedFile);
-        ExtentSparkReporter latestReporter = new ExtentSparkReporter(latestFile);
-
-        // Standardizing the enterprise "Pro" dashboard look
-        latestReporter.config().setTheme(Theme.DARK); 
-        latestReporter.config().setDocumentTitle("Walmart-Scale Quality Audit");
-        latestReporter.config().setEncoding("utf-8");
-        latestReporter.config().setReportName("Demoblaze Core Regression");
-
-        extent = new ExtentReports();
-        // Attach both: ensures CI finds index.html while you keep your history
-        extent.attachReporter(latestReporter, timestampedReporter);
-        
-        extent.setSystemInfo("Quality Architect", "Irfan Muneer");
-        extent.setSystemInfo("Platform", System.getProperty("os.name"));
-        extent.setSystemInfo("Environment", "Staging-Cloud");
-
-        return extent;
+    // 1. Priority: Check if the CI passed a report directory. Fallback to local 'reports'
+    String reportDir = System.getProperty("report.dir", "reports");
+    File directory = new File(reportDir);
+    
+    if (!directory.exists()) {
+        directory.mkdirs();
     }
+
+    // 2. Build the full file paths
+    String latestFile = reportDir + "/index.html";
+    String timestampedFile = reportDir + "/ExecutionReport_" + System.currentTimeMillis() + ".html";
+
+    ExtentSparkReporter latestReporter = new ExtentSparkReporter(latestFile);
+    ExtentSparkReporter timestampedReporter = new ExtentSparkReporter(timestampedFile);
+    
+    // ... (keep your existing configurations/comments)
+    extent = new ExtentReports();
+    extent.attachReporter(latestReporter, timestampedReporter);
+    return extent;
+}
 }

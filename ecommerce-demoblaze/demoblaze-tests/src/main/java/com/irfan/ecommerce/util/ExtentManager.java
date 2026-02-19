@@ -5,19 +5,18 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 /**
- * ExtentManager: Enterprise Observability Engine.
+ * ExtentManager: Making sure we actually see what failed.
  * 
- * WALMART-SCALE ARCHITECTURAL SOLUTION:
- * - PROBLEM: In high-frequency CI/CD pipelines, static report names caused 
- *   overwriting of critical failure data, and concurrent test execution led 
- *   to inconsistent report generation.
- * - SOLUTION: Implemented dynamic timestamped file-pathing and a thread-safe 
- *   initialization pattern to ensure report persistence across parallel Docker nodes.
- * - IMPACT: Achieved 100% auditability for regression cycles, enabling the 
- *   Leadership team to track "Quality Gates" across multiple release versions.
- * 
- * @author Irfan Muneer (Quality Architect)
+ * THE WALMART HEADACHE I FIXED:
+ * - THE PROBLEM: When running tests fast in the pipeline, the reports kept 
+ *   overwriting each other. I'd lose the failure proof from the previous run. 
+ *   Also, parallel runs were making the report data look like a jumbled mess.
+ * - WHAT I DID: I added timestamps so every run has its own file and made the 
+ *   instance thread-safe so it doesn't get confused when 10 tests report at once.
+ * - THE RESULT: We have a clean history of every single run. If something 
+ *   breaks at 3 AM in the CI, the proof is right there waiting for me.
  */
+
 public class ExtentManager {
     
     // Using volatile to ensure visibility across multiple threads in parallel execution

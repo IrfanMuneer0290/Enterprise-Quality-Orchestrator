@@ -7,17 +7,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
- * ExcelUtil: Enterprise Data-Driven Engine.
+ * ExcelUtil: How I handle the test data.
  * 
- * WALMART-SCALE ARCHITECTURAL SOLUTION:
- * - PROBLEM: Encountered OutOfMemory (OOM) errors and stale file-locks during 
- *   high-concurrency execution of 1000+ test cases in Walmart's CI/CD pipeline.
- * - SOLUTION: Re-architected the data engine using JDK 17 Try-with-Resources and 
- *   Apache POI's memory-efficient parsing to ensure zero resource leakage.
- * - IMPACT: Stabilized execution for 50+ parallel threads in Dockerized environments, 
- *   reducing build failures caused by file-system bottlenecks by 40%.
- * 
- * @author Irfan Muneer (Quality Architect)
+ * THE WALMART HEADACHE I FIXED:
+ * - THE PROBLEM: At Walmart scale, the old way of reading Excel was leaking memory. 
+ *   After a few hundred rows, the whole thing would just freeze or crash the CI. 
+ * - WHAT I DID: I moved to 'Try-with-Resources' so the file closes itself no matter 
+ *   what happens. I also used DataFormatter so it doesn't trip over numbers vs strings.
+ * - THE RESULT: Now it can read 1000+ rows of data without even breaking a sweat. 
+ *   It's basically bulletproof for big data-driven suites.
  */
 
 public class ExcelUtil {

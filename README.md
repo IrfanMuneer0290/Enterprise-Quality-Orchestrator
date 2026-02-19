@@ -48,32 +48,37 @@ Using `ThreadLocal<WebDriver>`, the DriverFactory supports safe parallel executi
 
 ## 📁 Project Structure
 
-```text
-.github/
-└── workflows/
-    └── main.yml                      # Production CI/CD pipeline
+.
+├── .github/workflows/
+│   └── main.yml                   # CI/CD Pipeline (Caching, Docker, Splunk)
+├── docker-compose.yml              # Selenium Grid Infrastructure
+├── pom.xml                         # Enterprise Maven Config (JDK 17 + Splunk)
+├── README.md                       # The "1% Elite" pitch
+│
+├── src/
+│   ├── main/
+│   │   ├── java/com/irfan/ecommerce/
+│   │   │   ├── ui/                # UI AUTOMATION LAYER
+│   │   │   │   ├── base/          # Thread-Safe DriverFactory, BaseTest
+│   │   │   │   └── pages/         # Page Objects (HomePage, ObjectRepo)
+│   │   │   ├── api/               # API AUTOMATION LAYER
+│   │   │   │   ├── clients/       # RestAssured Base Clients
+│   │   │   │   └── payloads/      # JSON Request/Response POJOs
+│   │   │   └── util/              # SHARED UTILITIES
+│   │   │       ├── ExcelUtil.java # Walmart-Scale Data Reader
+│   │   │       ├── ExtentManager.java
+│   │   │       ├── Listeners.java
+│   │   │       └── GenericActions.java
+│   │   └── resources/
+│   │       └── log4j2.xml         # Centralized Observability (Splunk HEC)
+│   │
+│   └── test/
+│       ├── java/com/irfan/ecommerce/
+│       │   ├── ui/tests/          # Selenium Regression Suites
+│       │   └── api/tests/         # RestAssured Service Suites
+│       └── resources/
+│           └── testdata/          # Excel Data & JSON Schema
 
-docker-compose.yml                    # Selenium Grid infrastructure
-
-src/
-├── main/
-│   ├── java/
-│   │   └── com/
-│   │       └── irfan/
-│   │           └── ecommerce/
-│   │               ├── base/         # DriverFactory (Docker & local logic)
-│   │               ├── pages/        # Page Objects (encapsulated business logic)
-│   │               └── util/         # ExtentManager, GenericActions, helpers
-│   └── resources/
-│       └── log4j2.xml                # Professional logging configuration
-└── test/
-    ├── java/
-    │   └── com/
-    │       └── irfan/
-    │           └── ecommerce/
-    │               └── tests/        # TestNG test classes
-    └── resources/
-        └── testdata.xlsx             # External data source for hybrid execution
 
 🚀 Upcoming Enhancements (Roadmap)
 🏗️ Infrastructure & Scalability

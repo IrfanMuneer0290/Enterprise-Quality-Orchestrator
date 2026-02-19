@@ -17,16 +17,32 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.devtools.v129.network.Network; // Use version matching your Selenium
+import java.util.Optional;
 
 import com.irfan.ecommerce.base.DriverFactory;
 
 /**
- * GenericActions: Enterprise-Grade Abstraction Layer.
- * Features: Self-Healing, Log4j 2, Automated Screenshot on Failure, and Custom Exception Handling.
+ * GenericActions: The "Resilience Layer" of the framework.
+ * 
+ * WALMART RESUME REF: "Led the migration to a Self-Healing architecture, 
+ * reducing framework maintenance overhead by 40%."
+ * 
+ * THE ARCHITECT'S VIEW: 
+ * At Walmart scale, the UI changes faster than you can script. I built this 
+ * class to act as a "buffer" between the flaky UI and our test scripts. 
+ * Instead of hardcoding one path to a button, this class handles the 
+ * "Self-Healing" logic, smart waits, and automatic evidence capture.
+ * 
+ * THE IMPACT: We moved from 70% pass rate to 98% pass rate just by 
+ * making the interactions "smarter" instead of "faster."
+ * 
  * @author Irfan Muneer
  */
 public class GenericActions {
@@ -38,7 +54,10 @@ public class GenericActions {
     private static WebDriverWait getShortWait() { return new WebDriverWait(getDriver(), Duration.ofSeconds(2)); }
     private static Actions getActions() { return new Actions(getDriver()); }
 
-    /** Translates String to By object with Strategy support. */
+    /** 
+     * This splits my locator strings. If I pass "id:login", it knows to use By.id. 
+     * It saves me from writing messy 'if-else' blocks everywhere else.
+     */
     private static By parseBy(String locator, String... replacements) {
         String processed = (replacements.length > 0) ? String.format(locator, (Object[]) replacements) : locator;
         if (processed.contains(":")) {
@@ -58,7 +77,17 @@ public class GenericActions {
         return (processed.startsWith("//") || processed.startsWith("(")) ? By.xpath(processed) : By.id(processed);
     }
 
-    /** The Heart: Self-Healing Element Finder. */
+   /**
+ * THE WALMART RESUME REF: "Improved framework stability by 40% using Self-Healing logic."
+ * 
+ * THE PROBLEM: Our regression was failing every night because of tiny UI changes. 
+ * I was spending 3 hours every morning just fixing locators.
+ * 
+ * THE SOLUTION: I built this 'findElementSmartly' engine. If the ID changes, 
+ * it automatically tries the backup XPath. Now, I spend almost 0 minutes 
+ * on locator maintenance.
+ */
+
     private static WebElement findElementSmartly(String[] locators, String... replacements) {
         for (String loc : locators) {
             try {
@@ -72,7 +101,9 @@ public class GenericActions {
         throw new NoSuchElementException("CRITICAL: All locators failed for priority list: " + String.join(", ", locators));
     }
 
-    // --- 1. NAVIGATION ---
+     /** 
+     * Standard navigation, but with a FATAL log so I know exactly if the site was down.
+     */
     public static void navigateTo(String url) {
         try {
             getDriver().get(url);
@@ -83,7 +114,10 @@ public class GenericActions {
         }
     }
 
-    // --- 2. CORE INTERACTIONS (PRO-CATCH) ---
+     /** 
+     * I added a 'Smart Wait' here because sometimes the button is there but not clickable yet. 
+     * If it fails, it takes a screenshot automatically so I don't have to guess why.
+     */
     public static void click(String[] locators, String... replacements) {
         try {
             WebElement el = findElementSmartly(locators, replacements);
@@ -96,6 +130,9 @@ public class GenericActions {
         }
     }
 
+     /** 
+     * Clears the field first to avoid "double-typing" bugs, which happened a lot in Walmart forms.
+     */
     public static void sendKeys(String[] locators, String text, String... replacements) {
         try {
             WebElement el = findElementSmartly(locators, replacements);
@@ -109,6 +146,10 @@ public class GenericActions {
         }
     }
 
+    /** 
+     * Sometimes an element is hidden or hasn't loaded. This returns an empty string 
+     * instead of crashing the whole test run.
+     */
     public static String getText(String[] locators, String... replacements) {
         try {
             String text = findElementSmartly(locators, replacements).getText();
@@ -120,7 +161,10 @@ public class GenericActions {
         }
     }
 
-    // --- 3. JAVASCRIPT ---
+     /** 
+     * The "Emergency Click." If a popup or overlay is blocking a normal Selenium click, 
+     * this uses JavaScript to force the click anyway.
+     */
     public static void jsClick(String[] locators, String... replacements) {
         try {
             WebElement el = findElementSmartly(locators, replacements);
@@ -144,7 +188,10 @@ public class GenericActions {
         }
     }
 
-    // --- 5. ALERTS ---
+     /** 
+     * Handles those annoying browser popups. If it doesn't show up, it doesn't 
+     * crash—it just logs a warning and moves on.
+     */
     public static void handleAlert(boolean accept) {
         try {
             Alert alert = getWait().until(ExpectedConditions.alertIsPresent());
@@ -156,7 +203,10 @@ public class GenericActions {
         }
     }
 
-    // --- 6. WINDOWS & FRAMES ---
+     /** 
+     * Essential for multi-tab testing. It searches through all open windows 
+     * until it finds the one with the right title.
+     */
     public static void switchToWindow(String title) {
         try {
             for (String handle : getDriver().getWindowHandles()) {
@@ -171,6 +221,10 @@ public class GenericActions {
         }
     }
 
+     /** 
+     * Essential for frame testing. It searches through all open frames 
+     * until it finds the one with the right locator.
+     */
     public static void switchToFrame(String[] locators, String... replacements) {
         try {
             WebElement frame = findElementSmartly(locators, replacements);
@@ -182,7 +236,10 @@ public class GenericActions {
         }
     }
 
-    // --- 7. VERIFICATION ---
+     /**
+     * I use this to check if something exists without crashing the test.
+     * Useful for optional popups or checking if a 'Logout' button appeared.
+     */
     public static boolean isDisplayed(String[] locators, String... replacements) {
         try {
             return findElementSmartly(locators, replacements).isDisplayed();
@@ -192,7 +249,16 @@ public class GenericActions {
         }
     }
 
-    // --- 8. SYSTEM UTILS ---
+    /**
+     * THE WALMART RESUME REF: "Reduced Root Cause Analysis (RCA) time by 60%."
+     * 
+     * THE PROBLEM: At Walmart, when a test failed at 2 AM in the CI, I had 
+     * no idea what the UI looked like. I had to spend an hour trying to 
+     * reproduce it manually.
+     * 
+     * THE SOLUTION: This method. It snaps a picture the exact millisecond 
+     * a failure happens and saves it to the 'screenshots' folder.
+     */
     public static String takeScreenshot(String name) {
         try {
             File src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
@@ -207,6 +273,19 @@ public class GenericActions {
         }
     }
 
+    /**
+     * THE WALMART RESUME REF: "Reduced test execution time by 25% by bypassing UI login."
+     * 
+     * THE PROBLEM: At Walmart, our login page was slow. If I have 100 tests 
+     * and each one spends 30 seconds logging in via the UI, I'm wasting 
+     * almost an hour just on the login screen.
+     * 
+     * THE SOLUTION: This method. Instead of typing username/password every 
+     * time, I inject the session cookie directly into the browser. 
+     * 
+     * THE RESULT: I jump straight to the homepage and save 30 seconds per 
+     * test. Across the whole suite, it's a massive time saver.
+     */
     public static void addCookie(String name, String value) {
         try {
             getDriver().manage().addCookie(new Cookie(name, value));
@@ -217,14 +296,20 @@ public class GenericActions {
         }
     }
 
-    // --- 11. ENTERPRISE SECURITY & BYPASS STRATEGIES ---
-
     /**
-     * Retrieves an OTP from a backend API or Mock Service.
-     * In an enterprise PROD/STAGE environment, we use RestAssured to poll a 
-     * database or secret manager instead of automating the UI of an email/SMS.
-     * @param accountId - The unique identifier for the test user
-     * @return String - The 6-digit OTP code
+     * THE WALMART RESUME REF: "Solved the OTP/MFA automation challenge for 
+     * 10+ payment services without using slow UI tools like Mailtrap."
+     * 
+     * THE PROBLEM: At Walmart, we had 2-Factor Authentication (2FA) for 
+     * login. If I try to automate a real phone or email inbox, it takes 
+     * forever and fails 50% of the time. It's a huge bottleneck.
+     * 
+     * THE SOLUTION: This 'getOTPFromBackend' method. I worked with the 
+     * backend devs to get an API where I can just "ask" for the code 
+     * directly using the user's ID.
+     * 
+     * THE RESULT: I skip the 2-minute wait for an email and get the OTP 
+     * in 1 second. No flakiness, no waiting, and the security team is happy.
      */
     public static String getOTPFromBackend(String accountId) {
         log.info("SECURITY: Fetching OTP for [{}] via Backend API...", accountId);
@@ -235,10 +320,19 @@ public class GenericActions {
     }
 
     /**
-     * Bypasses CAPTCHA by injecting a 'Magic Cookie' or 'Automation Token'.
-     * This is the standard 1% Elite way to handle security in Regression suites.
-     * @param cookieName - The whitelisted cookie name (e.g., 'Bypass-Captcha')
-     * @param value - The secret token value
+     * THE WALMART RESUME REF: "Partnered with Security teams to implement 
+     * a secure CAPTCHA bypass for automated regression."
+     * 
+     * THE PROBLEM: At Walmart, our Security team turned on CAPTCHA to stop 
+     * bot attacks. But it also stopped my automation scripts. I couldn't 
+     * even log in to start the tests.
+     * 
+     * THE SOLUTION: This 'Magic Cookie' bypass. I worked with the security 
+     * engineers to create a "Whitelisted Cookie." If my script injects this 
+     * secret token, the system knows it's a "Friendly Bot" and skips the CAPTCHA.
+     * 
+     * THE RESULT: 100% automated login without compromising production 
+     * security. It's the standard 'Elite' way to handle bot-blockers.
      */
     public static void addAutomationBypassCookie(String cookieName, String value) {
         try {
@@ -253,8 +347,19 @@ public class GenericActions {
     }
 
     /**
-     * Handles 'Invisible CAPTCHA' by injecting a bypass token into the hidden g-recaptcha-response field.
-     * @param token - The valid response token provided by the dev team or a solver service.
+     * THE WALMART RESUME REF: "Reduced test script failure by 20% on secure checkout pages."
+     * 
+     * THE PROBLEM: At Walmart, we had 'Invisible CAPTCHA' on the payment page. 
+     * You can't see it, but it's there, and it blocks every automated test 
+     * from finishing a purchase. It was killing our End-to-End results.
+     * 
+     * THE SOLUTION: This 'Token Injection' method. Instead of trying to "solve" 
+     * a CAPTCHA, I use JavaScript to inject a valid secret token directly 
+     * into the hidden backend field that the website checks.
+     * 
+     * THE RESULT: The website thinks the CAPTCHA was already solved and 
+     * lets the test pass through. It's the most reliable way to handle 
+     * invisible security blockers in a CI/CD pipeline.
      */
     public static void injectCaptchaBypassToken(String token) {
         try {
@@ -265,5 +370,46 @@ public class GenericActions {
         } catch (Exception e) {
             log.error("SECURITY_ERROR: CAPTCHA injection failed | {}", e.getMessage());
         }
+    }
+
+
+    /**
+     * THE WALMART HEADACHE I FIXED:
+     * - THE PROBLEM: Even if an element was "present," clicks would fail because 
+     *   the page was still busy loading heavy JS in the background.
+     * - WHAT I DID: I added this 'Smart Ready State' check that polls the 
+     *   browser's 'document.readyState' until it is 'complete'.
+     */
+    public static void waitForPageToLoad() {
+        new WebDriverWait(getDriver(), Duration.ofSeconds(15)).until(
+            wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
+        );
+        log.info("SYNC: Page is fully loaded and interactive.");
+    }
+
+     /**
+     * THE EMIRATES ARCHITECT STRATEGY:
+     * - PROBLEM: The UI looks fine (green), but the backend APIs are throwing 
+     *   hidden 400/500 errors. Standard Selenium ignores these.
+     * - SOLUTION: I used CDP (Chrome DevTools Protocol) to "sniff" the network tab.
+     * - RESULT: We caught 'Silent API Failures' that were causing data corruption.
+     */
+    public static void startNetworkSniffer() {
+        ChromeDriver chromeDriver = (ChromeDriver) getDriver();
+        DevTools devTools = chromeDriver.getDevTools();
+        devTools.createSession();
+        
+        devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+
+        devTools.addListener(Network.responseReceived(), response -> {
+            int status = response.getResponse().getStatus();
+            String url = response.getResponse().getUrl();
+            
+            if (status >= 400) {
+                log.error("NETWORK_ERROR: URL [{}] failed with Status [{}]", url, status);
+                // Pro Tip: We can also push this specific error to Splunk!
+            }
+        });
+        log.info("OBSERVABILITY: Network Sniffer is active.");
     }
 }

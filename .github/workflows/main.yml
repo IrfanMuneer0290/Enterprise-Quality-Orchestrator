@@ -58,7 +58,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Failure-Report-${{ github.run_id }}
-        path:  ${{ github.workspace }}/test-output/
+        path:  "**/test-output/"
         retention-days: 3
 
     - name: 🧹 Shutdown Infrastructure

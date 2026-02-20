@@ -6,6 +6,9 @@
       RESUME REF: "Implemented parallel execution architecture reducing regression 
       cycles from 2 hours to 15 minutes." 
     -->
+    <listeners>
+    <listener class-name="com.irfan.ecommerce.utils.ExtentReportListener" />
+</listeners>
      <!-- 
     <listeners>
         <listener class-name="com.irfan.ecommerce.util.AnnotationTransformer" />

@@ -7,13 +7,12 @@
       cycles from 2 hours to 15 minutes." 
     -->
     <listeners>
-    <listener class-name="com.irfan.ecommerce.utils.ExtentReportListener" />
-</listeners>
-     <!-- 
-    <listeners>
+        <!-- This handles the Retry logic (AnnotationTransformer.java) -->
         <listener class-name="com.irfan.ecommerce.util.AnnotationTransformer" />
+        
+        <!-- This handles the Reporting logic (Listeners.java) -->
         <listener class-name="com.irfan.ecommerce.util.Listeners" />
-    </listeners> -->
+    </listeners>
 
     <test name="E-Commerce Core Funnel Validation">
         <classes>

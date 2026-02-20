@@ -28,17 +28,7 @@
         <webdrivermanager.version>5.9.2</webdrivermanager.version>
         <lombok.version>1.18.32</lombok.version>
     </properties>
-    <configuration>
-        <!-- ✅ Run your TestNG suite -->
-        <suiteXmlFiles>
-            <suiteXmlFile>testng.xml</suiteXmlFile>
-        </suiteXmlFiles>
-        <systemPropertyVariables>
-            <headless>true</headless>
-            <execution_env>remote</execution_env>
-            <report.dir>target/reports</report.dir>
-        </systemPropertyVariables>
-    </configuration>
+    
 
     <dependencies>
         <!-- Selenium WebDriver -->
@@ -158,6 +148,22 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
+            <!-- ✅ SUREFIRE PLUGIN - MAKES TESTNG.XML WORK -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.2.5</version>
+            <configuration>
+                <suiteXmlFiles>
+                    <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                </suiteXmlFiles>
+                <systemPropertyVariables>
+                    <headless>true</headless>
+                    <execution_env>remote</execution_env>
+                    <report.dir>target/reports</report.dir>
+                </systemPropertyVariables>
+            </configuration>
+        </plugin>
         </plugins>
     </build>
 

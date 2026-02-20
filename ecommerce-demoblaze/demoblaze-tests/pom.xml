@@ -28,6 +28,17 @@
         <webdrivermanager.version>5.9.2</webdrivermanager.version>
         <lombok.version>1.18.32</lombok.version>
     </properties>
+    <configuration>
+        <!-- ✅ Run your TestNG suite -->
+        <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+        </suiteXmlFiles>
+        <systemPropertyVariables>
+            <headless>true</headless>
+            <execution_env>remote</execution_env>
+            <report.dir>target/reports</report.dir>
+        </systemPropertyVariables>
+    </configuration>
 
     <dependencies>
         <!-- Selenium WebDriver -->

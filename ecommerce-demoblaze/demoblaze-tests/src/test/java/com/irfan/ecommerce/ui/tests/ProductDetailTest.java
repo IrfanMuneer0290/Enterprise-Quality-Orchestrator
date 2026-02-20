@@ -33,6 +33,7 @@ public class ProductDetailTest extends BaseTest {
         String actualPrice = productPage.getProductPrice();
         logger.info("VALIDATION: Actual Price found in UI: {}", actualPrice);
         
+        
         Assert.assertTrue(actualPrice.contains("$360"), 
          "REVENUE RISK: Price mismatch! Expected $360 but found: " + actualPrice);
             

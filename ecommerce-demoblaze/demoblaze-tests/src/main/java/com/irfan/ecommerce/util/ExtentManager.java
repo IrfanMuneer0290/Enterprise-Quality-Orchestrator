@@ -32,25 +32,36 @@ public class ExtentManager {
         return extent;
     }
 
-     private static ExtentReports createInstance() {
-        // We use an absolute path provided by the CI, or fallback to local project root
-        String reportDir = System.getProperty("report.dir", System.getProperty("user.dir") + "/reports");
+    private static ExtentReports createInstance() {
+        // CI environments need explicit directory creation
+        String reportDir = System.getProperty("report.dir", "target/reports");
         File directory = new File(reportDir);
 
+        // FIXED: Create parents + directory (CI runners are strict)
         if (!directory.exists()) {
             directory.mkdirs();
         }
 
-        // Use the directory object to build the file paths
-        File latestFile = new File(directory, "index.html");
-        File timestampedFile = new File(directory, "ExecutionReport_" + System.currentTimeMillis() + ".html");
+        // Verify writable (debug CI failures)
+        if (!directory.canWrite()) {
+            System.err.println("❌ Cannot write to reports dir: " + reportDir);
+            return new ExtentReports(); // Fallback
+        }
+
+        String latestFile = new File(directory, "index.html").getAbsolutePath();
+        String timestampedFile = new File(directory, "ExecutionReport_" +
+                System.currentTimeMillis() + ".html").getAbsolutePath();
 
         ExtentSparkReporter latestReporter = new ExtentSparkReporter(latestFile);
         ExtentSparkReporter timestampedReporter = new ExtentSparkReporter(timestampedFile);
-        
-        extent = new ExtentReports();
+
+        ExtentReports extent = new ExtentReports();
         extent.attachReporter(latestReporter, timestampedReporter);
+
+        // Theme for better visibility
+        extent.setSystemInfo("CI Run ID", "${{ github.run_id }}");
+        extent.setSystemInfo("Execution Env", System.getProperty("execution_env", "local"));
+
         return extent;
     }
 }
-

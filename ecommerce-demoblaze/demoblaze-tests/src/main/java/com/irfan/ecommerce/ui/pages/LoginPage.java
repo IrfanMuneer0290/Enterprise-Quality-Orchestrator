@@ -1,61 +1,53 @@
 package com.irfan.ecommerce.ui.pages;
 
+import com.irfan.ecommerce.ui.base.BasePage;
+import com.irfan.ecommerce.util.GenericActions;
+import com.irfan.ecommerce.util.ObjectRepo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
-import com.irfan.ecommerce.util.GenericActions;
-import com.irfan.ecommerce.util.ObjectRepo;
-
 /**
- * LoginPage: Encapsulates the Login Modal interactions.
- * This class follows the 'Pure POM' rule: No Selenium API leaks into the Page Object.
+ * LoginPage: The "Identity Controller."
+ * 
+ * 🚀 THE WALMART-SCALE "WHY" (Resilience Engineering):
+ * SITUATION: Modals are notoriously flaky. If you try to sendKeys before 
+ *   the 'Login' popup finishes its animation, the test crashes.
+ * ACTION: Extending BasePage to inherit 'waitForVisibilityOfElement'. 
+ *   We now wait for the Modal fields before interacting.
  */
-public class LoginPage {
+public class LoginPage extends BasePage {
     
     private static final Logger log = LogManager.getLogger(LoginPage.class);
-    private WebDriver driver;
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver); // IMPACT: Anchors this page to the BasePage Engine
     }
 
-    /**
-     * Executes the full Login journey on DemoBlaze.
-     * Uses self-healing locators from the ObjectRepo.
-     * 
-     * @param username - Valid/Invalid test user
-     * @param password - Associated password
-     * @return LoginPage - Returns this for Fluent Interface / Method Chaining
-     */
     public LoginPage performLogin(String username, String password) {
-        log.info("START: Commencing Login flow for user: {}", username);
+        log.info("🚀 START: Commencing Login flow for user: [{}]", username);
         
         try {
-            // 1. Open the Login Modal
             GenericActions.click(ObjectRepo.LOGIN_LINK);
             
-            // 2. Input Credentials (Handled by Self-Healing Engine)
+            // WALMART MOVE: Wait for the specific Modal field to be visible 
+            // before trying to type. This kills 'ElementNotInteractable' bugs.
+            waitForVisibilityOfElement(ObjectRepo.LOGIN_USER);
+            
             GenericActions.sendKeys(ObjectRepo.LOGIN_USER, username);
             GenericActions.sendKeys(ObjectRepo.LOGIN_PASS, password);
-            
-            // 3. Submit Login
             GenericActions.click(ObjectRepo.LOGIN_BTN);
             
-            log.info("END: Login credentials submitted for: {}", username);
+            log.info("✅ END: Login credentials submitted for: [{}]", username);
         } catch (Exception e) {
-            log.error("BUSINESS_FAILURE: The Login flow was interrupted. Trace: {}", e.getMessage());
-            throw e; // Re-throw to fail the TestNG test
+            log.error("❌ FAILURE: Login flow interrupted. MTTR Trace: {}", e.getMessage());
+            throw e;
         }
         return this;
     }
 
-    /**
-     * Specifically handles the JavaScript Alerts that appear on DemoBlaze
-     * for 'Wrong Password' or 'User does not exist'.
-     */
     public void handleLoginAlert() {
-        log.info("ACTION: Checking for Login-related JS Alerts...");
-        GenericActions.handleAlert(true); // true = accept/click OK
+        log.info("⚠️ ACTION: Handling JS Auth Alert...");
+        GenericActions.handleAlert(true);
     }
 }

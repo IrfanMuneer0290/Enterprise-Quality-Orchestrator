@@ -1,25 +1,23 @@
 package com.irfan.ecommerce.ui.pages;
 
-import org.openqa.selenium.WebDriver;
-
+import com.irfan.ecommerce.ui.base.BasePage;
 import com.irfan.ecommerce.util.GenericActions;
 import com.irfan.ecommerce.util.ObjectRepo;
+import org.openqa.selenium.WebDriver;
 
-public class ProductPage {
+public class ProductPage extends BasePage {
 
-    // Even if we use GenericActions, we keep this constructor 
-    // so the Test classes don't break when passing 'driver'.
     public ProductPage(WebDriver driver) {
-        // No need to do this.driver = driver; if only using GenericActions
+        super(driver); // IMPACT: Ensures every page uses the same WebDriver session
     }
 
     public String getProductName() {
-        // Uses the locator from ObjectRepo
+        // WALMART MOVE: We wait for the Title before fetching text to avoid 'Empty String' returns
+        waitForVisibilityOfElement(ObjectRepo.PRODUCT_TITLE);
         return GenericActions.getText(ObjectRepo.PRODUCT_TITLE);
     }
 
     public String getProductPrice() {
-        // Uses the new locator we just added
         return GenericActions.getText(ObjectRepo.PRODUCT_PRICE);
     }
 

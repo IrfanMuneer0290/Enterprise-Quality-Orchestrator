@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org">
+<suite name="Debug Idempotency Suite">
+    <listeners>
+        <listener class-name="com.irfan.ecommerce.util.Listeners" />
+    </listeners>
+    <test name="Idempotency Test">
+        <classes>
+            <class name="com.irfan.ecommerce.api.tests.IdempotencyTest" />
+        </classes>
+    </test>
+</suite>

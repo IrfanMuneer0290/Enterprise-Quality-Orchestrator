@@ -17,6 +17,13 @@ public class AuthClient extends BaseApiClient {
             .then()
                 .spec(responseSpec)
                 .extract().response();
+        
+        // 🛡️ THE WALMART HARD GATE: Catch the 500 HTML before it poisons the UI
+    if (response.getStatusCode() != 200) {
+        logger.error("🚨 AUTH FAILURE: Server returned [{}]. Body: {}", 
+            response.getStatusCode(), response.asString());
+        throw new RuntimeException("🛑 API BREAKDOWN: Cannot retrieve token. Server returned 500.");
+    }
 
         return response.asString().replace("Auth_token: ", "").trim();
     }

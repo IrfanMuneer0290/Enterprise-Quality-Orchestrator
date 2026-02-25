@@ -165,22 +165,28 @@ public abstract class BaseApiClient {
      * - MTTR: Slashed by 60% by providing developers with instant,
      * actionable failure packets in Splunk, skipping the manual triage.
      */
-    protected void handleApiFailure(Response response, String endpoint) {
+        protected void handleApiFailure(Response response, String endpoint) {
         if (response.getStatusCode() >= 400) {
-            // IMPACT: Using ERROR level ensures failure body hits Splunk even in production
-            // log profiles.
             logger.error("🚨 API CRIME SCENE: Endpoint [{}] failed with Status [{}].",
                     endpoint, response.getStatusCode());
             logger.error("🆔 REQUEST ID: {}", response.getHeader("X-Request-ID"));
             logger.error("📦 FAILURE BODY: {}", response.getBody().asPrettyString());
 
-            // Walmart Move: Fail-Fast on critical data corruption to save cloud runner
-            // budget.
+            // 🛡️ THE WALMART "HARD GATE": 
+            // If the server returns a 500 (Internal Error) or 401 (Unauthorized), 
+            // we MUST throw a RuntimeException immediately. 
+            // This prevents "Poisoned Data" (like HTML strings) from being passed to Selenium.
+            if (response.getStatusCode() >= 500 || response.getStatusCode() == 401) {
+                throw new RuntimeException("🛑 INFRASTRUCTURE COLLAPSE: [" + endpoint + 
+                    "] returned " + response.getStatusCode() + ". Terminating to prevent cascading UI failures.");
+            }
+
             if (response.getStatusCode() == 503) {
                 throw new RuntimeException("GATEWAY DOWN: Terminating suite to save CI credits.");
             }
         }
     }
+
 
     /**
      * 🔍 THE WALMART "CRIME SCENE" LOGGER

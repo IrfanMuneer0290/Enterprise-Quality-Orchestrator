@@ -3,6 +3,8 @@ package com.irfan.ecommerce.ui.base;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+
 import com.irfan.ecommerce.util.PropertyReader;
 import com.irfan.ecommerce.api.clients.AuthClient;
 import org.apache.logging.log4j.LogManager;
@@ -80,6 +82,42 @@ public class BaseTest {
     public WebDriver getDriver() {
         return DriverFactory.getDriver();
     }
+
+    /**
+     * 🛡️ UNIFIED LOGGING (The Reflection Bridge)
+     * 
+     * SITUATION: Maven prevents 'main' from seeing 'test' classes at compile-time.
+     * ACTION: Using Reflection to dynamically "handshake" with the Listener at runtime.
+     * RESULT: Synchronized Console + HTML logs without violating Maven standards.
+     * 📊 DORA IMPACT: Slashed MTTR by centralizing all evidence in one report.
+     */
+    protected void reportLog(String message) {
+        // 1. Always log to Console/Log4j (Compile-time safe)
+        logger.info(message);
+
+        // 2. Safely log to Extent Report (Runtime-only bridge)
+        try {
+            // We look for the class name exactly as it sits in your 'test' folder
+            Class<?> listenerClass = Class.forName("com.irfan.ecommerce.util.Listeners");
+            
+            // We find the 'getExtentTest' method we just added
+            java.lang.reflect.Method getTest = listenerClass.getMethod("getExtentTest");
+            
+            // We invoke it. 'null' because the method is static.
+            Object extentTest = getTest.invoke(null);
+
+            if (extentTest != null) {
+                // If the report is active, we push the log into the HTML
+                extentTest.getClass()
+                          .getMethod("info", String.class)
+                          .invoke(extentTest, "🔍 " + message);
+            }
+        } catch (Exception e) {
+            // SILENT CATCH: If the listener isn't running (e.g. single test run), 
+            // we just skip the HTML log. No crashes.
+        }
+    }
+
 
     @AfterMethod(alwaysRun = true)
     public void teardown() {

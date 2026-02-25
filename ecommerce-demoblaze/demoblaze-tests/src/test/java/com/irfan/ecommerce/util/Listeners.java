@@ -25,6 +25,18 @@ public class Listeners implements ITestListener {
     private static ExtentReports extent = ExtentManager.getInstance();
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
+     /**
+     * 🛰️ THREAD-SAFE REPORT BRIDGE
+     * 
+     * SITUATION: During 100+ parallel runs, we need a way to 'Inject' logs 
+     *   into the specific Extent Test instance owned by the current thread.
+     * ACTION: Created a public static getter to expose the ThreadLocal 'ExtentTest'.
+     * RESULT: Enabled real-time 'Forensic Logging' directly from the Test Logic.
+     */
+    public static ExtentTest getExtentTest() {
+        return test.get();
+    }
+
     public void onTestStart(ITestResult result) {
         // Highlighting the specific test class for better dashboard categorization
         String testName = result.getTestClass().getRealClass().getSimpleName() + " : "
@@ -35,6 +47,7 @@ public class Listeners implements ITestListener {
 
     public void onTestSuccess(ITestResult result) {
         test.get().log(Status.PASS, "Validation Successful: Component behaving as expected.");
+         extent.flush(); 
     }
 
     /**
@@ -52,8 +65,10 @@ public class Listeners implements ITestListener {
         try {
             String screenshotPath = GenericActions.takeScreenshot(result.getName());
             test.get().addScreenCaptureFromPath(screenshotPath);
+            extent.flush();
         } catch (Exception e) {
             test.get().warning("System was unable to capture screenshot: " + e.getMessage());
+            extent.flush();
         }
     }
 
@@ -62,4 +77,6 @@ public class Listeners implements ITestListener {
         // Clear ThreadLocal to prevent memory leaks in long-running CI agents
         test.remove();
     }
+
+    
 }

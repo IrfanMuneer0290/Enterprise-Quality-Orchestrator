@@ -1,0 +1,20 @@
+[
+  {
+    "scenario": "Valid Login",
+    "username": "irfan60", 
+    "password": "Nature@123",
+    "expectedStatus": "success"
+  },
+  {
+    "scenario": "Invalid Password",
+    "username": "irfan_test",
+    "password": "wrong_password",
+    "expectedStatus": "failure"
+  },
+  {
+    "scenario": "Empty Credentials",
+    "username": "",
+    "password": "",
+    "expectedStatus": "failure"
+  }
+]

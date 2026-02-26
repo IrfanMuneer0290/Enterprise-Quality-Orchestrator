@@ -42,28 +42,33 @@ public class DriverFactory {
 
 
     public static WebDriver initDriver(String browserName) {
-        logger.info("🔧 Thread [{}] initDriver({})", Thread.currentThread().getId(), browserName);
-        
-        // CRITICAL: Remove old driver first
-        quitDriver();
-        
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        
-        try {
-            WebDriverManager.chromedriver().setup();
-            WebDriver driver = new ChromeDriver(options);
-            tlDriver.set(driver);  // THREAD-SAFE SET
-            allDrivers.add(driver);
-            
-            logger.info("✅ Thread [{}] driver created: {}", Thread.currentThread().getId(), driver);
-            return driver;
-            
-        } catch (Exception e) {
-            logger.error("❌ Thread [{}] driver creation FAILED", Thread.currentThread().getId(), e);
-            throw new RuntimeException("Driver init failed", e);
-        }
+    String env = System.getProperty("execution_env", "local"); // Default to local
+    logger.info("🔧 Thread [{}] Environment: {} | Browser: {}", Thread.currentThread().getId(), env, browserName);
+
+    quitDriver();
+    
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--remote-allow-origins=*");
+    
+    // 🔥 WALMART CLOUD STRATEGY: Headless for CI performance
+    boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "false"));
+    if (isHeadless) {
+        options.addArguments("--headless=new");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--window-size=1920,1080");
     }
+
+    try {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver(options);
+        tlDriver.set(driver);
+        allDrivers.add(driver);
+        return driver;
+    } catch (Exception e) {
+        logger.error("❌ Driver initialization failed on host: {}", System.getProperty("os.name"));
+        throw new RuntimeException("Driver init failed", e);
+    }
+}
 
     public static WebDriver getDriver() {
         WebDriver driver = tlDriver.get();

@@ -5,26 +5,28 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
 public class AuthClient extends BaseApiClient {
-    public String getAuthToken(String username, String password) {
-        // 🛠️ THE FIX: Use standard Constructor instead of Builder
-        LoginRequest payload = new LoginRequest(username, password);
+    
+  public String getAuthToken(String username, String password) {
+    LoginRequest payload = new LoginRequest(username, password);
+    String endpoint = getProp("api.endpoint.login");
 
-        Response response = given()
-                .spec(getRequestSpec())
-                .body(payload)
-            .when()
-                .post(getProp("api.endpoint.login"))
-            .then()
-                .spec(responseSpec)
-                .extract().response();
-        
-        // 🛡️ THE WALMART HARD GATE: Catch the 500 HTML before it poisons the UI
-    if (response.getStatusCode() != 200) {
-        logger.error("🚨 AUTH FAILURE: Server returned [{}]. Body: {}", 
-            response.getStatusCode(), response.asString());
-        throw new RuntimeException("🛑 API BREAKDOWN: Cannot retrieve token. Server returned 500.");
+    Response response = given()
+            .spec(getRequestSpec())
+            .body(payload)
+        .post(endpoint);
+
+    // 🛡️ THE WALMART HARD GATE: Intercept failures before they poison the UI
+    handleApiFailure(response, endpoint);
+
+    String body = response.asString();
+    
+    // Validate that we actually have a token string and not HTML/Empty body
+    if (body == null || !body.contains("Auth_token:")) {
+        logger.error("🚨 TOKEN_PARSE_ERROR: Expected 'Auth_token:' but received: {}", body);
+        throw new RuntimeException("🛑 API DATA BREACH: Response successful but token key is missing.");
     }
 
-        return response.asString().replace("Auth_token: ", "").trim();
-    }
+    // Now it's safe to parse
+    return body.replace("Auth_token: ", "").trim();
+}
 }

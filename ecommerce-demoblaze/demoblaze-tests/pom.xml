@@ -98,12 +98,14 @@
         <!-- PROBLEM: Stakeholders had no real-time visibility into automation trends or failure patterns. -->
         <!-- SOLUTION: At Walmart, I integrated Splunk to stream test metrics directly to live dashboards. -->
         <!-- RESULT: Provided executive-level visibility and reduced 'Time-to-Identify' (MTTI) for production risks. -->
-        <dependency>
+       <!--
+         <dependency>
             <groupId>com.splunk.logging</groupId>
             <artifactId>splunk-library-javalogging</artifactId>
             <version>1.11.8</version>
         </dependency>
-
+        -->
+      
         <!-- Extent Reports -->
         <!-- PROBLEM: Raw console logs were unreadable for non-technical stakeholders and product owners. -->
         <!-- SOLUTION: Implemented rich HTML Extent Reports with embedded failure screenshots. -->
@@ -179,12 +181,14 @@
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
+    <!--
+     <repositories>
         <repository>
             <id>splunk-artifactory</id>
             <name>Splunk Releases</name>
             <url>https://splunk.jfrog.io</url>
         </repository>
     </repositories>
+    -->
+   
 </project>

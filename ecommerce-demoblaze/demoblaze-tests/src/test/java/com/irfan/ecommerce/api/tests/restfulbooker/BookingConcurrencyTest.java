@@ -22,7 +22,7 @@ public class BookingConcurrencyTest {
     private final BookingClient client = new BookingClient();
     private final int THREAD_COUNT = 20; // 🎯 Optimized for Public Sandbox Stability
 
-    @Test
+   @Test(invocationCount = 20, threadPoolSize = 20)
     public void testConcurrentBookings() throws InterruptedException {
         CyclicBarrier barrier = new CyclicBarrier(THREAD_COUNT);
         ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT);

@@ -6,6 +6,8 @@ import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v129.network.Network;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
+import com.irfan.ecommerce.util.GenericActions;
 import com.irfan.ecommerce.util.PropertyReader;
 import com.irfan.ecommerce.api.clients.AuthClient;
 import com.irfan.ecommerce.ui.pages.HomePage;
@@ -19,30 +21,34 @@ import java.util.Optional;
  * BaseTest: The "Orchestrator" for all test classes.
  * 
  * 🚀 EMIRATES-SCALE "WHY" (Network Flakiness Layer):
- * SITUATION: Sometimes the UI is fine, but the Backend API is slow or 500ing. 
- *   Standard Selenium won't tell me that; it just says 'Timeout'.
- * ACTION: Integrated Chrome DevTools Protocol (CDP) to 'listen' to background traffic.
- * IMPACT: Reduced finger-pointing between Frontend and Backend teams by 50% 
- *   by distinguishing between UI rendering bugs and Backend latency.
+ * SITUATION: Sometimes the UI is fine, but the Backend API is slow or 500ing.
+ * Standard Selenium won't tell me that; it just says 'Timeout'.
+ * ACTION: Integrated Chrome DevTools Protocol (CDP) to 'listen' to background
+ * traffic.
+ * IMPACT: Reduced finger-pointing between Frontend and Backend teams by 50%
+ * by distinguishing between UI rendering bugs and Backend latency.
  */
 public class BaseTest {
     public WebDriver driver;
     protected static final Logger logger = LogManager.getLogger(BaseTest.class);
     private AuthClient authClient = new AuthClient();
     protected LoginPage loginPage;
-    protected HomePage homePage; 
+    protected HomePage homePage;
 
     @BeforeMethod
     public void setup() {
         logger.info("🚀 Thread [{}] BaseTest.setup()", Thread.currentThread().getId());
 
         driver = DriverFactory.initDriver("chrome");
-        
-        // 🕵️‍♂️ THE EMIRATES SNIFFER: Initializing CDP Session
-        startNetworkInterceptor();
+
+        try {
+            GenericActions.startNetworkSniffer();
+        } catch (Throwable t) {
+            System.err.println("🚨 BYPASS: CDP Sniffer failed to load, but moving to UI tests: " + t.getMessage());
+        }
 
         loginPage = new LoginPage(driver);
-        homePage = new HomePage(driver); 
+        homePage = new HomePage(driver);
 
         if (driver == null) {
             throw new RuntimeException("ThreadLocal driver NULL!");
@@ -108,6 +114,8 @@ public class BaseTest {
     @AfterMethod(alwaysRun = true)
     public void teardown() {
         logger.info("🧹 Thread [{}] teardown", Thread.currentThread().getId());
-        DriverFactory.quitDriver(); 
+        GenericActions.stopNetworkSniffer();
+        DriverFactory.quitDriver();
     }
+
 }

@@ -1,46 +1,36 @@
 package com.irfan.ecommerce.ui.tests;
 
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.irfan.ecommerce.ui.base.BaseTest;
+import com.irfan.ecommerce.ui.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.irfan.ecommerce.ui.base.BaseTest;
-import com.irfan.ecommerce.ui.pages.HomePage;
-
-/**
- * HomePageTest: The "Smoke Test" for Business Availability.
- * 
- * THE WALMART HEADACHE I FIXED:
- * - THE PROBLEM: During holiday sales (Black Friday), the site would sometimes 
- *   load but the "Core Components" were missing. A simple "Title Check" 
- *   wasn't enough to tell if the site was actually open for business.
- * - WHAT I DID: I built this test to act as a "Health Check." It doesn't just 
- *   check the URL; it validates that the brand 'STORE' is visible and 
- *   logs the event to Splunk so the SRE team knows the frontend is healthy.
- * - THE RESULT: This became our "Tier 1" health check. If this test fails 
- *   in the CI, we block the entire deployment immediately.
- */
 public class HomePageTest extends BaseTest {
 
-    private static final Logger logger = LogManager.getLogger(HomePageTest.class);
+    @Test(description = "Verify HomePage loads correctly and displays categories")
+    public void verifyHomePageLanding() {
+        // 1. Initialize the Page Object
+        HomePage homePage = new HomePage(getDriver());
 
-    @Test(description = "Validates the Brand Identity and Storefront availability.")
-    public void testHomePageTitle() {
-        // High-visibility log for the Splunk Dashboard
-        logger.info("SPLUNK_MONITOR: Starting Tier-1 Availability Check for HomePage.");
+        // 2. Execute Actions
+        homePage.open();
+        String title = homePage.getTitleText();
+
+        // 3. Assertions (The 'Test' part)
+        Assert.assertEquals(title, "PRODUCT STORE", "Brand logo text mismatch!");
         
-        HomePage homePage = new HomePage(driver); 
+        String phoneCategory = homePage.getPhonesCategoryText();
+        Assert.assertEquals(phoneCategory, "Phones", "Category sidebar not loaded!");
+    }
+
+    @Test(description = "Verify user can navigate to a specific product")
+    public void verifyProductNavigation() {
+        HomePage homePage = new HomePage(getDriver());
         homePage.open();
         
-        String actualTitle = homePage.getTitleText();
+        // This uses your dynamic locator logic
+        homePage.clickProductByName("Laptops");
         
-        // Asserting on the 'STORE' brand identity to confirm UI rendered correctly
-        logger.info("VALIDATION: Checking if brand 'STORE' is present in UI.");
-        Assert.assertTrue(actualTitle.contains("STORE"), 
-            "CRITICAL: Home Page brand title was not found! UI might be broken.");
-            
-        logger.info("SPLUNK_MONITOR: HomePage Availability Check - PASSED.");
+        // Add more assertions here as you build out ProductPage
     }
 }

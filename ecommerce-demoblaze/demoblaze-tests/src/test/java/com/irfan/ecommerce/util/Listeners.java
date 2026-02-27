@@ -60,7 +60,7 @@ public class Listeners implements ITestListener {
      * If no (or final retry), log the Critical Failure with Screenshot.
      * Dashboard Hygiene: In a large team, seeing 3 failures for the same test is confusing. This logic shows 1 Warning (the flake) and 1 Success (if the retry passed).
        RCA Speed: If the test fails all attempts, the log clearly says "All retry attempts exhausted," letting you know this isn't just a network blink, but a real bug.
-       Memory Safety: You still have test.remove() in onFinish, ensuring that every thread's ExtentTest reference is cleared from the JVM.
+       Memory Safety:  still have test.remove() in onFinish, ensuring that every thread's ExtentTest reference is cleared from the JVM.
      */
     public void onTestFailure(ITestResult result) {
         ExtentTest currentTest = test.get();

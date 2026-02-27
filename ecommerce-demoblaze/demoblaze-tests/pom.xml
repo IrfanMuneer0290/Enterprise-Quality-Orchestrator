@@ -37,13 +37,11 @@
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-devtools-v129</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
-        
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-devtools-v129</artifactId> 
+    <version>4.25.0</version>
+</dependency>
         <!-- TestNG -->
         <dependency>
             <groupId>org.testng</groupId>

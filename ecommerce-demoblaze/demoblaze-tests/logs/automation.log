@@ -2574,3 +2574,701 @@ Session ID: 6fe90076dc5304578c8a27842a86fc17
 2026-02-26 23:37:00 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [45] teardown
 2026-02-26 23:37:00 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [45] driver quit + ThreadLocal cleared
 2026-02-26 23:37:00 [Thread-2] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 02:54:28 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Performing Health Check on: https://api.demoblaze.com
+2026-02-27 02:54:30 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ API INFRASTRUCTURE READY [qa]: https://api.demoblaze.com
+2026-02-27 02:54:30 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [46] BaseTest.setup()
+2026-02-27 02:54:30 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [45] BaseTest.setup()
+2026-02-27 02:54:30 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [43] BaseTest.setup()
+2026-02-27 02:54:30 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [45] Environment: local | Browser: chrome
+2026-02-27 02:54:30 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [43] Environment: local | Browser: chrome
+2026-02-27 02:54:30 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [46] Environment: local | Browser: chrome
+2026-02-27 02:54:30 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 02:54:30 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 02:54:33 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [46] teardown
+2026-02-27 02:54:33 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [45] teardown
+2026-02-27 02:54:33 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 02:54:33 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 02:54:33 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 02:54:33 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [46] driver quit + ThreadLocal cleared
+2026-02-27 02:54:33 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [45] driver quit + ThreadLocal cleared
+2026-02-27 02:54:33 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 02:54:33 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 02:54:33 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [43] driver quit + ThreadLocal cleared
+2026-02-27 02:54:33 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 03:02:20 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Performing Health Check on: https://api.demoblaze.com
+2026-02-27 03:02:22 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ API INFRASTRUCTURE READY [qa]: https://api.demoblaze.com
+2026-02-27 03:02:22 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [42] BaseTest.setup()
+2026-02-27 03:02:22 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [45] BaseTest.setup()
+2026-02-27 03:02:22 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 03:02:22 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [42] Environment: local | Browser: chrome
+2026-02-27 03:02:22 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 03:02:22 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [45] Environment: local | Browser: chrome
+2026-02-27 03:02:22 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [43] BaseTest.setup()
+2026-02-27 03:02:22 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [43] Environment: local | Browser: chrome
+2026-02-27 03:02:24 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [45] teardown
+2026-02-27 03:02:24 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 03:02:24 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 03:02:24 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [42] teardown
+2026-02-27 03:02:25 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 03:02:25 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [45] driver quit + ThreadLocal cleared
+2026-02-27 03:02:25 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [42] driver quit + ThreadLocal cleared
+2026-02-27 03:02:25 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [43] driver quit + ThreadLocal cleared
+2026-02-27 03:02:25 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 03:02:25 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 03:02:25 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 03:06:41 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Performing Health Check on: https://api.demoblaze.com
+2026-02-27 03:06:42 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ API INFRASTRUCTURE READY [qa]: https://api.demoblaze.com
+2026-02-27 03:06:42 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 03:06:42 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [45] BaseTest.setup()
+2026-02-27 03:06:42 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [42] BaseTest.setup()
+2026-02-27 03:06:42 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 03:06:42 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [42] Environment: local | Browser: chrome
+2026-02-27 03:06:42 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [45] Environment: local | Browser: chrome
+2026-02-27 03:06:42 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [43] BaseTest.setup()
+2026-02-27 03:06:42 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [43] Environment: local | Browser: chrome
+2026-02-27 03:06:46 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 03:06:46 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [45] teardown
+2026-02-27 03:06:46 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 03:06:46 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [42] teardown
+2026-02-27 03:06:46 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [42] driver quit + ThreadLocal cleared
+2026-02-27 03:06:46 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [43] driver quit + ThreadLocal cleared
+2026-02-27 03:06:46 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 03:06:46 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 03:06:46 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [45] driver quit + ThreadLocal cleared
+2026-02-27 03:06:46 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 03:06:46 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 03:08:34 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Performing Health Check on: https://api.demoblaze.com
+2026-02-27 03:08:36 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ API INFRASTRUCTURE READY [qa]: https://api.demoblaze.com
+2026-02-27 03:08:36 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [43] BaseTest.setup()
+2026-02-27 03:08:36 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [41] BaseTest.setup()
+2026-02-27 03:08:36 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 03:08:36 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [43] Environment: local | Browser: chrome
+2026-02-27 03:08:36 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 03:08:36 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [41] Environment: local | Browser: chrome
+2026-02-27 03:08:36 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [42] BaseTest.setup()
+2026-02-27 03:08:36 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [42] Environment: local | Browser: chrome
+2026-02-27 03:08:38 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 03:08:38 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [41] teardown
+2026-02-27 03:08:38 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 03:08:38 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [42] teardown
+2026-02-27 03:08:38 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [41] driver quit + ThreadLocal cleared
+2026-02-27 03:08:38 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [42] driver quit + ThreadLocal cleared
+2026-02-27 03:08:38 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [42] teardown
+2026-02-27 03:08:38 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [42] teardown
+2026-02-27 03:08:38 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 03:08:38 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [43] driver quit + ThreadLocal cleared
+2026-02-27 03:08:38 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 03:16:33 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Performing Health Check on: https://api.demoblaze.com
+2026-02-27 03:16:34 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ API INFRASTRUCTURE READY [qa]: https://api.demoblaze.com
+2026-02-27 03:16:34 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [43] BaseTest.setup()
+2026-02-27 03:16:34 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 03:16:34 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [46] BaseTest.setup()
+2026-02-27 03:16:34 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 03:16:34 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [43] Environment: local | Browser: chrome
+2026-02-27 03:16:34 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [47] BaseTest.setup()
+2026-02-27 03:16:34 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [47] Environment: local | Browser: chrome
+2026-02-27 03:16:34 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [46] Environment: local | Browser: chrome
+2026-02-27 03:16:34 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [45] BaseTest.setup()
+2026-02-27 03:16:34 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [45] Environment: local | Browser: chrome
+2026-02-27 03:16:38 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 03:16:38 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [46] teardown
+2026-02-27 03:16:38 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [47] teardown
+2026-02-27 03:16:38 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [45] teardown
+2026-02-27 03:16:38 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 03:16:38 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [47] driver quit + ThreadLocal cleared
+2026-02-27 03:16:38 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [45] driver quit + ThreadLocal cleared
+2026-02-27 03:16:38 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [43] driver quit + ThreadLocal cleared
+2026-02-27 03:16:38 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [45] teardown
+2026-02-27 03:16:38 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [46] driver quit + ThreadLocal cleared
+2026-02-27 03:16:38 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [45] teardown
+2026-02-27 03:16:38 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 03:16:38 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 03:19:05 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Performing Health Check on: https://api.demoblaze.com
+2026-02-27 03:19:06 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ API INFRASTRUCTURE READY [qa]: https://api.demoblaze.com
+2026-02-27 03:19:06 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [45] BaseTest.setup()
+2026-02-27 03:19:06 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [46] BaseTest.setup()
+2026-02-27 03:19:06 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [42] BaseTest.setup()
+2026-02-27 03:19:06 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [43] BaseTest.setup()
+2026-02-27 03:19:06 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [43] Environment: local | Browser: chrome
+2026-02-27 03:19:06 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [42] Environment: local | Browser: chrome
+2026-02-27 03:19:06 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [46] Environment: local | Browser: chrome
+2026-02-27 03:19:06 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [45] Environment: local | Browser: chrome
+2026-02-27 03:19:06 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 03:19:06 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 03:19:09 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:19:09 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:19:09 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:19:09 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:19:09 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:19:09 [TestNG-test-E-Commerce UI Core Funnel-4] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:19:09 [TestNG-test-E-Commerce UI Core Funnel-2] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:19:09 [TestNG-test-E-Commerce UI Core Funnel-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:19:09 [TestNG-test-E-Commerce UI Core Funnel-5] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:19:09 [TestNG-test-E-Commerce UI Core Funnel-3] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [43] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [42] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [44] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Valid Login
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [45] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [46] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - SPLUNK_MONITOR: Starting PDP Integrity Check for 'Samsung galaxy s6'.
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🛠️ DATA_HYGIENE: Injecting unique identity: irfan60_1772147951144
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - SPLUNK_MONITOR: Starting Cart Persistence Check for: Nokia lumia 1520
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 START: Commencing Login flow for user: [irfan60_1772147951144]
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: //a[@id='nava']
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: //a[@id='nava']
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - SPLUNK_MONITOR: Home Page getTitleText initiated.
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - ACTION: Clicking on 'Samsung galaxy s6' link.
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: //a[@id='nava']
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: //a[@id='nava']
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [PRODUCT STORE]
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [42] teardown
+2026-02-27 03:19:11 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [42] driver quit + ThreadLocal cleared
+2026-02-27 03:19:12 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan60_1772147951144] into field.
+2026-02-27 03:19:12 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [Nature@123] into field.
+2026-02-27 03:19:12 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:19:12 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.LoginPage - ✅ END: Login credentials submitted for: [irfan60_1772147951144]
+2026-02-27 03:19:12 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: //a[@id='nava']
+2026-02-27 03:19:12 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 03:19:12 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:19:12 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - ACTION: Adding product to cart.
+2026-02-27 03:19:12 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:19:12 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 03:19:12 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [43] driver quit + ThreadLocal cleared
+2026-02-27 03:19:12 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: User does not exist.
+2026-02-27 03:19:12 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [$360 *includes tax]
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - VALIDATION: Actual Price found in UI: $360 *includes tax
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: xpath://h2[@class='name']
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Samsung galaxy s6]
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - SPLUNK_MONITOR: PDP Integrity Check - PASSED.
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [45] teardown
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [45] driver quit + ThreadLocal cleared
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Product added
+2026-02-27 03:19:13 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - ACTION: Navigating to Cart Page.
+2026-02-27 03:19:14 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:19:14 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.pages.CartPage - CART: Verifying if [Nokia lumia 1520] exists in the checkout table.
+2026-02-27 03:19:14 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:19:14 [TestNG-test-E-Commerce UI Core Funnel-3] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:19:14 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [44] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:19:14 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Invalid Password
+2026-02-27 03:19:14 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🛠️ DATA_HYGIENE: Injecting unique identity: irfan_test_1772147954899
+2026-02-27 03:19:14 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 START: Commencing Login flow for user: [irfan_test_1772147954899]
+2026-02-27 03:19:15 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Nokia lumia 1520]
+2026-02-27 03:19:15 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - SPLUNK_MONITOR: Cart Persistence Check - PASSED.
+2026-02-27 03:19:15 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [46] teardown
+2026-02-27 03:19:15 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [46] driver quit + ThreadLocal cleared
+2026-02-27 03:19:15 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:19:15 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:19:16 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan_test_1772147954899] into field.
+2026-02-27 03:19:16 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [wrong_password] into field.
+2026-02-27 03:19:16 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:19:16 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.LoginPage - ✅ END: Login credentials submitted for: [irfan_test_1772147954899]
+2026-02-27 03:19:17 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: User does not exist.
+2026-02-27 03:19:17 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ SUCCESS: System correctly rejected login with alert: User does not exist.
+2026-02-27 03:19:17 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 03:19:17 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 03:19:17 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 03:19:17 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 03:19:18 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:19:18 [TestNG-test-E-Commerce UI Core Funnel-3] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:19:19 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [44] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:19:19 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Empty Credentials
+2026-02-27 03:19:19 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🛠️ DATA_HYGIENE: Injecting unique identity: _1772147959894
+2026-02-27 03:19:19 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 START: Commencing Login flow for user: [_1772147959894]
+2026-02-27 03:19:19 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:19:19 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:19:20 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [_1772147959894] into field.
+2026-02-27 03:19:20 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 03:19:20 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:19:20 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.LoginPage - ✅ END: Login credentials submitted for: [_1772147959894]
+2026-02-27 03:19:20 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Please fill out Username and Password.
+2026-02-27 03:19:20 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ SUCCESS: System correctly rejected login with alert: Please fill out Username and Password.
+2026-02-27 03:19:20 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 03:19:20 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 03:19:20 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 03:38:32 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Performing Health Check on: https://api.demoblaze.com
+2026-02-27 03:38:33 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ API INFRASTRUCTURE READY [qa]: https://api.demoblaze.com
+2026-02-27 03:38:33 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:38:33 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:38:35 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:38:35 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:38:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:38:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Valid Login
+2026-02-27 03:38:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🛠️ DATA_PREP: Attempting to register user: irfan60
+2026-02-27 03:38:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:38:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:sign-username
+2026-02-27 03:38:38 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan60] into field.
+2026-02-27 03:38:38 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [Nature@123] into field.
+2026-02-27 03:38:38 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:38:38 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: This user already exist.
+2026-02-27 03:38:38 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:sign-username
+2026-02-27 03:38:41 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.ui.pages.LoginPage - ⚠️ REGISTRATION_SKIPPED: Proceeding to Login phase.
+2026-02-27 03:38:41 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 START: Commencing Login flow for user: [irfan60]
+2026-02-27 03:38:43 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.util.GenericActions - FATAL: Click failed. Evidence: /Users/irfanmuneer/selenium-portfolio/ecommerce-demoblaze/demoblaze-tests/target/reports/screenshots/Click_Failure_1772149122953.png. Trace: element click intercepted: Element <a class="nav-link" href="#" id="login2" data-toggle="modal" data-target="#logInModal" style="display: block;">...</a> is not clickable at point (1086, 36). Other element would receive the click: <div class="modal fade show" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" style="display: block;">...</div>
+  (Session info: chrome=145.0.7632.117)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.6.1', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [44dd7f8d7623c301490a8786a512b206, clickElement {id=f.51B36A6BB85F3F2C1337C91135B415AE.d.028FE46A1F6D27A94B89CF159941E0B9.e.104}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /var/folders/kq/7_l65hw16wd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55608}, goog:processID: 56157, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55608/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (44dd7f8d7623c301490a8786a512b206)] -> id: login2]
+Session ID: 44dd7f8d7623c301490a8786a512b206
+2026-02-27 03:38:43 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.ui.pages.LoginPage - ❌ FAILURE: Login flow interrupted: Interaction Error: Click
+2026-02-27 03:38:43 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:38:43 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:38:43 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:38:43 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:38:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:38:44 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:38:46 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:38:46 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Invalid Password
+2026-02-27 03:38:46 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 START: Commencing Login flow for user: [irfan_test]
+2026-02-27 03:38:46 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:38:46 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:38:46 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan_test] into field.
+2026-02-27 03:38:46 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [wrong_password] into field.
+2026-02-27 03:38:46 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:38:46 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - ✅ END: Login credentials submitted.
+2026-02-27 03:38:47 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: User does not exist.
+2026-02-27 03:38:47 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ SUCCESS: System correctly rejected login with alert: User does not exist.
+2026-02-27 03:38:47 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:38:47 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:38:47 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:38:47 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:38:48 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:38:48 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:38:49 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:38:49 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Empty Credentials
+2026-02-27 03:38:49 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 START: Commencing Login flow for user: []
+2026-02-27 03:38:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:38:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:38:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 03:38:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 03:38:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:38:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - ✅ END: Login credentials submitted.
+2026-02-27 03:38:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Please fill out Username and Password.
+2026-02-27 03:38:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ SUCCESS: System correctly rejected login with alert: Please fill out Username and Password.
+2026-02-27 03:38:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:38:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:38:50 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 03:42:46 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Performing Health Check on: https://api.demoblaze.com
+2026-02-27 03:42:47 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ API INFRASTRUCTURE READY [qa]: https://api.demoblaze.com
+2026-02-27 03:42:47 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:42:47 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:42:49 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:42:49 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:42:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:42:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Valid Login
+2026-02-27 03:42:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🛠️ DATA_PREP: Attempting to register user: irfan60
+2026-02-27 03:42:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:42:50 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:sign-username
+2026-02-27 03:42:51 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan60] into field.
+2026-02-27 03:42:51 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [Nature@123] into field.
+2026-02-27 03:42:51 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:42:52 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: This user already exist.
+2026-02-27 03:42:52 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:sign-username
+2026-02-27 03:43:03 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.ui.pages.LoginPage - ⚠️ REGISTRATION_SKIPPED: Moving to Login phase.
+2026-02-27 03:43:03 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 START: Commencing Login flow for user: [irfan60]
+2026-02-27 03:43:04 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.util.GenericActions - FATAL: Click failed. Evidence: /Users/irfanmuneer/selenium-portfolio/ecommerce-demoblaze/demoblaze-tests/target/reports/screenshots/Click_Failure_1772149384243.png. Trace: element click intercepted: Element <a class="nav-link" href="#" id="login2" data-toggle="modal" data-target="#logInModal" style="display: block;">...</a> is not clickable at point (1086, 36). Other element would receive the click: <div class="modal fade show" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" style="display: block;">...</div>
+  (Session info: chrome=145.0.7632.117)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.6.1', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [af05a2e21360c30d9d6ce6e44a877e89, clickElement {id=f.CD2D3709341C26E13BC20471B50FA37A.d.069529F584E0FFD6F4AADEA36ABC2D48.e.104}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /var/folders/kq/7_l65hw16wd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55781}, goog:processID: 56733, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55781/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (af05a2e21360c30d9d6ce6e44a877e89)] -> id: login2]
+Session ID: af05a2e21360c30d9d6ce6e44a877e89
+2026-02-27 03:43:04 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.ui.pages.LoginPage - ❌ FAILURE: Login flow interrupted: Interaction Error: Click
+2026-02-27 03:43:04 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:43:04 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:43:04 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:43:04 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:43:05 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:43:05 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:43:06 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:43:06 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Invalid Password
+2026-02-27 03:43:06 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 START: Commencing Login flow for user: [irfan_test]
+2026-02-27 03:43:06 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:43:06 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:43:07 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan_test] into field.
+2026-02-27 03:43:07 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [wrong_password] into field.
+2026-02-27 03:43:07 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:43:07 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - ✅ END: Login credentials submitted.
+2026-02-27 03:43:07 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: User does not exist.
+2026-02-27 03:43:07 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ SUCCESS: System correctly rejected login with alert: User does not exist.
+2026-02-27 03:43:07 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:43:08 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:43:08 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:43:08 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:43:08 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:43:08 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:43:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:43:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Empty Credentials
+2026-02-27 03:43:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 START: Commencing Login flow for user: []
+2026-02-27 03:43:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:43:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:43:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 03:43:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 03:43:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:43:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - ✅ END: Login credentials submitted.
+2026-02-27 03:43:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Please fill out Username and Password.
+2026-02-27 03:43:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ SUCCESS: System correctly rejected login with alert: Please fill out Username and Password.
+2026-02-27 03:43:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:43:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:43:10 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 03:44:19 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Performing Health Check on: https://api.demoblaze.com
+2026-02-27 03:44:20 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ API INFRASTRUCTURE READY [qa]: https://api.demoblaze.com
+2026-02-27 03:44:20 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:44:20 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:44:22 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:44:22 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:44:24 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:44:24 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Valid Login
+2026-02-27 03:44:24 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🛠️ DATA_PREP: Registering dynamic user: irfan60
+2026-02-27 03:44:24 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:44:24 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:sign-username
+2026-02-27 03:44:25 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan60] into field.
+2026-02-27 03:44:25 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [Nature@123] into field.
+2026-02-27 03:44:25 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:44:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: This user already exist.
+2026-02-27 03:44:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - ⏳ SYNC: Waiting for Sign-up modal and backdrop to clear...
+2026-02-27 03:44:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:sign-username
+2026-02-27 03:44:36 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.ui.pages.LoginPage - ⚠️ REGISTRATION_SKIPPED: Proceeding to Login phase. Reason: Expected condition failed: waiting for element to no longer be visible: By.id: sign-username (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.6.1', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /var/folders/kq/7_l65hw16wd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55887}, goog:processID: 57051, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55887/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 14478b9c34df5e3625ca3a408e2ea3a7
+2026-02-27 03:44:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 START: Commencing Login flow for user: [irfan60]
+2026-02-27 03:44:37 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.util.GenericActions - FATAL: Click failed. Evidence: /Users/irfanmuneer/selenium-portfolio/ecommerce-demoblaze/demoblaze-tests/target/reports/screenshots/Click_Failure_1772149477211.png. Trace: element click intercepted: Element <a class="nav-link" href="#" id="login2" data-toggle="modal" data-target="#logInModal" style="display: block;">...</a> is not clickable at point (1086, 36). Other element would receive the click: <div class="modal fade show" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" style="display: block;">...</div>
+  (Session info: chrome=145.0.7632.117)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.6.1', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [14478b9c34df5e3625ca3a408e2ea3a7, clickElement {id=f.DE74B156E9CAD3690EED5A21EBD573FE.d.7288EB8824FFB33E8EEF32338F2BBE76.e.93}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /var/folders/kq/7_l65hw16wd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55887}, goog:processID: 57051, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55887/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (14478b9c34df5e3625ca3a408e2ea3a7)] -> id: login2]
+Session ID: 14478b9c34df5e3625ca3a408e2ea3a7
+2026-02-27 03:44:37 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.ui.pages.LoginPage - ❌ FAILURE: Login flow interrupted: Interaction Error: Click
+2026-02-27 03:44:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:44:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:44:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:44:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:44:38 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:44:38 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:44:39 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:44:39 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Invalid Password
+2026-02-27 03:44:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 START: Commencing Login flow for user: [irfan_test]
+2026-02-27 03:44:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:44:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:44:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan_test] into field.
+2026-02-27 03:44:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [wrong_password] into field.
+2026-02-27 03:44:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:44:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - ✅ END: Login credentials submitted.
+2026-02-27 03:44:41 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: User does not exist.
+2026-02-27 03:44:41 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ SUCCESS: System correctly rejected login with alert: User does not exist.
+2026-02-27 03:44:41 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:44:41 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:44:41 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:44:41 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:44:42 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:44:42 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:44:42 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:44:42 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Empty Credentials
+2026-02-27 03:44:42 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 START: Commencing Login flow for user: []
+2026-02-27 03:44:43 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:44:43 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:44:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 03:44:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 03:44:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:44:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - ✅ END: Login credentials submitted.
+2026-02-27 03:44:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Please fill out Username and Password.
+2026-02-27 03:44:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ SUCCESS: System correctly rejected login with alert: Please fill out Username and Password.
+2026-02-27 03:44:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:44:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:51:00 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Performing Health Check on: https://api.demoblaze.com
+2026-02-27 03:51:02 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ API INFRASTRUCTURE READY [qa]: https://api.demoblaze.com
+2026-02-27 03:51:02 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:51:02 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:51:03 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:51:03 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:51:05 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:51:05 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Valid Login
+2026-02-27 03:51:05 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 ATTEMPT: Login for [irfan60]
+2026-02-27 03:51:05 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:51:05 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:51:06 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan60] into field.
+2026-02-27 03:51:06 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [Nature@123] into field.
+2026-02-27 03:51:06 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:51:11 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NO_ALERT: Expected alert did not appear within timeout.
+2026-02-27 03:51:11 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: [irfan60]
+2026-02-27 03:51:11 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 03:51:11 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Welcome irfan60]
+2026-02-27 03:51:11 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ SESSION_CONFIRMED: User [irfan60] is active.
+2026-02-27 03:51:11 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:51:11 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:51:11 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:51:11 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:51:12 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:51:12 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:51:14 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:51:14 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Invalid Password
+2026-02-27 03:51:14 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 ATTEMPT: Login for [irfan_test]
+2026-02-27 03:51:14 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:51:14 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:51:14 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan_test] into field.
+2026-02-27 03:51:14 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [wrong_password] into field.
+2026-02-27 03:51:14 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:51:15 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: User does not exist.
+2026-02-27 03:51:15 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.ui.pages.LoginPage - ⚠️ RECOVERY: User not found. Moving to Registration...
+2026-02-27 03:51:15 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🛠️ REGISTRATION: Creating account for [irfan_test]
+2026-02-27 03:51:17 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.util.GenericActions - FATAL: Click failed. Evidence: /Users/irfanmuneer/selenium-portfolio/ecommerce-demoblaze/demoblaze-tests/target/reports/screenshots/Click_Failure_1772149876896.png. Trace: element click intercepted: Element <a class="nav-link" href="#" id="signin2" data-toggle="modal" data-target="#signInModal" style="display: block;">...</a> is not clickable at point (1148, 36). Other element would receive the click: <div class="modal fade show" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" style="display: block;">...</div>
+  (Session info: chrome=145.0.7632.117)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.6.1', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d72da96dac7e00a8b3d5ad2b48b5b8f6, clickElement {id=f.D62A61C7235DB840B5B7B5C408E5A4D1.d.92E2F9DAFE34BACCECD0A7CB08ABEDD8.e.104}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /var/folders/kq/7_l65hw16wd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56239}, goog:processID: 57910, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:56239/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (d72da96dac7e00a8b3d5ad2b48b5b8f6)] -> id: signin2]
+Session ID: d72da96dac7e00a8b3d5ad2b48b5b8f6
+2026-02-27 03:51:17 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.ui.pages.LoginPage - ❌ REG_FAIL: Registration failed: Interaction Error: Click
+2026-02-27 03:51:17 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🔄 RETRY: Logging in after registration.
+2026-02-27 03:51:17 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 ATTEMPT: Login for [irfan_test]
+2026-02-27 03:51:18 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.util.GenericActions - FATAL: Click failed. Evidence: /Users/irfanmuneer/selenium-portfolio/ecommerce-demoblaze/demoblaze-tests/target/reports/screenshots/Click_Failure_1772149878187.png. Trace: element click intercepted: Element <a class="nav-link" href="#" id="login2" data-toggle="modal" data-target="#logInModal" style="display: block;">...</a> is not clickable at point (1086, 36). Other element would receive the click: <div class="modal fade show" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" style="display: block;">...</div>
+  (Session info: chrome=145.0.7632.117)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.6.1', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d72da96dac7e00a8b3d5ad2b48b5b8f6, clickElement {id=f.D62A61C7235DB840B5B7B5C408E5A4D1.d.92E2F9DAFE34BACCECD0A7CB08ABEDD8.e.43}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /var/folders/kq/7_l65hw16wd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56239}, goog:processID: 57910, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:56239/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (d72da96dac7e00a8b3d5ad2b48b5b8f6)] -> id: login2]
+Session ID: d72da96dac7e00a8b3d5ad2b48b5b8f6
+2026-02-27 03:51:18 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.ui.pages.LoginPage - ❌ ERROR: Login sequence failed: Interaction Error: Click
+2026-02-27 03:51:18 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.ui.pages.LoginPage - ❌ ERROR: Login sequence failed: Interaction Error: Click
+2026-02-27 03:51:18 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:51:18 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:51:18 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:51:18 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:51:19 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:51:19 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:51:19 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:51:19 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Empty Credentials
+2026-02-27 03:51:19 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 ATTEMPT: Login for []
+2026-02-27 03:51:20 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:51:20 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:51:21 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 03:51:21 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 03:51:21 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:51:21 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Please fill out Username and Password.
+2026-02-27 03:51:21 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ SUCCESS: Negative scenario validated.
+2026-02-27 03:51:21 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:51:21 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:51:21 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 03:53:22 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Performing Health Check on: https://api.demoblaze.com
+2026-02-27 03:53:23 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ API INFRASTRUCTURE READY [qa]: https://api.demoblaze.com
+2026-02-27 03:53:23 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:53:23 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:53:24 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:53:24 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:53:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:53:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Valid Login
+2026-02-27 03:53:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 ATTEMPT: Login for [irfan60]
+2026-02-27 03:53:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 03:53:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:53:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:53:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan60] into field.
+2026-02-27 03:53:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [Nature@123] into field.
+2026-02-27 03:53:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:53:32 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NO_ALERT: Expected alert did not appear within timeout.
+2026-02-27 03:53:32 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: [irfan60]
+2026-02-27 03:53:32 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 03:53:32 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Welcome irfan60]
+2026-02-27 03:53:32 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ SESSION_CONFIRMED: User [irfan60] is active.
+2026-02-27 03:53:32 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:53:32 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:53:32 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:53:32 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:53:32 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:53:32 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:53:33 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:53:33 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Invalid Password
+2026-02-27 03:53:33 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 ATTEMPT: Login for [irfan_test]
+2026-02-27 03:53:34 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 03:53:34 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:53:34 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:53:35 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan_test] into field.
+2026-02-27 03:53:35 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [wrong_password] into field.
+2026-02-27 03:53:35 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:53:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: User does not exist.
+2026-02-27 03:53:36 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.ui.pages.LoginPage - ⚠️ RECOVERY: User not found. Moving to Registration...
+2026-02-27 03:53:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🛠️ REGISTRATION: Creating account for [irfan_test]
+2026-02-27 03:53:37 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.util.GenericActions - FATAL: Click failed. Evidence: /Users/irfanmuneer/selenium-portfolio/ecommerce-demoblaze/demoblaze-tests/target/reports/screenshots/Click_Failure_1772150017537.png. Trace: element click intercepted: Element <a class="nav-link" href="#" id="signin2" data-toggle="modal" data-target="#signInModal" style="display: block;">...</a> is not clickable at point (1148, 36). Other element would receive the click: <div class="modal fade show" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" style="display: block;">...</div>
+  (Session info: chrome=145.0.7632.117)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.6.1', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [58d324d3e033341cef7de98cfdfff472, clickElement {id=f.FA2B7DD93E78FA41DEF8A41AEC064893.d.04976A33FA7B0EB9232A07D5993E2F78.e.104}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /var/folders/kq/7_l65hw16wd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56350}, goog:processID: 58396, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:56350/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (58d324d3e033341cef7de98cfdfff472)] -> id: signin2]
+Session ID: 58d324d3e033341cef7de98cfdfff472
+2026-02-27 03:53:37 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.ui.pages.LoginPage - ❌ REGISTRATION_CRASHED: Cannot proceed. Interaction Error: Click
+2026-02-27 03:53:37 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.ui.pages.LoginPage - ❌ ERROR: Login sequence failed: Registration failed, stopping recursive login.
+2026-02-27 03:53:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:53:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:53:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 03:53:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 03:53:38 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:53:38 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:53:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:53:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Empty Credentials
+2026-02-27 03:53:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 ATTEMPT: Login for []
+2026-02-27 03:53:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 03:53:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:53:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:53:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 03:53:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 03:53:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:53:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Please fill out Username and Password.
+2026-02-27 03:53:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ SUCCESS: Negative scenario validated.
+2026-02-27 03:53:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 03:53:41 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 03:56:25 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Performing Health Check on: https://api.demoblaze.com
+2026-02-27 03:56:26 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ API INFRASTRUCTURE READY [qa]: https://api.demoblaze.com
+2026-02-27 03:56:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [37] BaseTest.setup()
+2026-02-27 03:56:26 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [37] Environment: local | Browser: chrome
+2026-02-27 03:56:28 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:56:28 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:56:30 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [37] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:56:30 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Valid Login
+2026-02-27 03:56:30 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 ATTEMPT: Login for [irfan60]
+2026-02-27 03:56:30 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 03:56:30 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:56:30 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:56:31 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan60] into field.
+2026-02-27 03:56:31 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [Nature@123] into field.
+2026-02-27 03:56:31 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:56:36 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NO_ALERT: Expected alert did not appear within timeout.
+2026-02-27 03:56:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - ✅ PROCESS: Login attempt finished with message: NO_ALERT_PRESENT
+2026-02-27 03:56:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: [irfan60]
+2026-02-27 03:56:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 03:56:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Welcome irfan60]
+2026-02-27 03:56:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ SESSION_CONFIRMED: User [irfan60] is active.
+2026-02-27 03:56:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [37] teardown
+2026-02-27 03:56:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [37] driver quit + ThreadLocal cleared
+2026-02-27 03:56:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [37] BaseTest.setup()
+2026-02-27 03:56:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [37] Environment: local | Browser: chrome
+2026-02-27 03:56:37 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:56:37 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:56:38 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [37] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:56:38 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Invalid Password
+2026-02-27 03:56:38 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 ATTEMPT: Login for [irfan_test]
+2026-02-27 03:56:38 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 03:56:39 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:56:39 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:56:39 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan_test] into field.
+2026-02-27 03:56:39 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [wrong_password] into field.
+2026-02-27 03:56:39 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:56:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: User does not exist.
+2026-02-27 03:56:40 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.ui.pages.LoginPage - ⚠️ RECOVERY: User missing. Registering once...
+2026-02-27 03:56:40 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🛠️ REGISTRATION: Creating account for [irfan_test]
+2026-02-27 03:56:41 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.util.GenericActions - FATAL: Click failed. Evidence: /Users/irfanmuneer/selenium-portfolio/ecommerce-demoblaze/demoblaze-tests/target/reports/screenshots/Click_Failure_1772150201335.png. Trace: element click intercepted: Element <a class="nav-link" href="#" id="signin2" data-toggle="modal" data-target="#signInModal" style="display: block;">...</a> is not clickable at point (1148, 36). Other element would receive the click: <div class="modal fade show" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" style="display: block;">...</div>
+  (Session info: chrome=145.0.7632.117)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.6.1', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [4eef9dd168a6595a3e4456143955df7c, clickElement {id=f.F9D8C5FDA0C7F4781FD275A0C9F1848C.d.E065D69A6CA907C99AF82CED885C4DEC.e.105}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /var/folders/kq/7_l65hw16wd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56631}, goog:processID: 59045, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:56631/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (4eef9dd168a6595a3e4456143955df7c)] -> id: signin2]
+Session ID: 4eef9dd168a6595a3e4456143955df7c
+2026-02-27 03:56:41 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.ui.pages.LoginPage - ❌ REGISTRATION_CRASHED: Cannot proceed. Interaction Error: Click
+2026-02-27 03:56:41 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.ui.pages.LoginPage - ❌ ERROR: Interaction failed: Registration failed, stopping recursive login.
+2026-02-27 03:56:41 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [37] teardown
+2026-02-27 03:56:41 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [37] driver quit + ThreadLocal cleared
+2026-02-27 03:56:41 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [37] BaseTest.setup()
+2026-02-27 03:56:41 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [37] Environment: local | Browser: chrome
+2026-02-27 03:56:42 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 03:56:42 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 03:56:43 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [37] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 03:56:43 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 STARTING SCENARIO: Empty Credentials
+2026-02-27 03:56:43 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 ATTEMPT: Login for []
+2026-02-27 03:56:43 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 03:56:43 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:56:43 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 03:56:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 03:56:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 03:56:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 03:56:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Please fill out Username and Password.
+2026-02-27 03:56:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - ✅ PROCESS: Login attempt finished with message: Please fill out Username and Password.
+2026-02-27 03:56:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ SUCCESS: Negative scenario validated.
+2026-02-27 03:56:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [37] teardown
+2026-02-27 03:56:44 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [37] driver quit + ThreadLocal cleared
+2026-02-27 03:56:44 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 04:00:07 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Performing Health Check on: https://api.demoblaze.com
+2026-02-27 04:00:09 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ API INFRASTRUCTURE READY [qa]: https://api.demoblaze.com
+2026-02-27 04:00:09 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 04:00:09 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 04:00:10 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 04:00:10 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 04:00:12 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 04:00:12 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User [irfan60]
+2026-02-27 04:00:12 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 04:00:12 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 04:00:12 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 04:00:12 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan60] into field.
+2026-02-27 04:00:12 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [Nature@123] into field.
+2026-02-27 04:00:12 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 04:00:18 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NO_ALERT: Expected alert did not appear within timeout.
+2026-02-27 04:00:18 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: [irfan60]
+2026-02-27 04:00:18 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 04:00:18 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Welcome irfan60]
+2026-02-27 04:00:18 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ SESSION_CONFIRMED: User [irfan60] is active.
+2026-02-27 04:00:18 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 04:00:18 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 04:00:18 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 04:00:18 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 04:00:18 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 04:00:18 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 04:00:20 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 04:00:20 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User [irfan_test]
+2026-02-27 04:00:20 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 04:00:20 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 04:00:20 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 04:00:21 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan_test] into field.
+2026-02-27 04:00:21 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [wrong_password] into field.
+2026-02-27 04:00:21 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 04:00:22 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: User does not exist.
+2026-02-27 04:00:22 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: [irfan_test]
+2026-02-27 04:00:22 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 04:00:32 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.ui.pages.HomePage - ❌ SESSION_ERROR: Login verification failed or timed out.
+2026-02-27 04:00:32 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 04:00:32 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 04:00:32 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 04:00:32 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 04:00:33 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 04:00:33 [TestNG-test-Surefire test-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 04:00:35 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 04:00:35 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User []
+2026-02-27 04:00:35 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 04:00:35 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 04:00:35 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 04:00:35 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 04:00:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 04:00:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 04:00:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Please fill out Username and Password.
+2026-02-27 04:00:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: []
+2026-02-27 04:00:36 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 04:00:46 [TestNG-test-Surefire test-1] ERROR com.irfan.ecommerce.ui.pages.HomePage - ❌ SESSION_ERROR: Login verification failed or timed out.
+2026-02-27 04:00:46 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 04:00:46 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 04:00:46 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...

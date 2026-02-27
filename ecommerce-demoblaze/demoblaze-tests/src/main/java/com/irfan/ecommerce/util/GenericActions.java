@@ -14,18 +14,19 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.devtools.v129.network.Network; // Use version matching your Selenium
-import java.util.Optional;
 import com.irfan.ecommerce.ui.base.DriverFactory;
+
+// USE THIS INSTEAD (Generic):
+import org.openqa.selenium.devtools.NetworkInterceptor;
+import org.openqa.selenium.remote.http.Filter;
+import org.openqa.selenium.remote.http.HttpHandler;
+import org.openqa.selenium.remote.http.HttpResponse;
 
 /**
  * GenericActions: The "Resilience Layer" of the framework.
@@ -47,6 +48,7 @@ import com.irfan.ecommerce.ui.base.DriverFactory;
 public class GenericActions {
 
     private static final Logger log = LogManager.getLogger(GenericActions.class);
+    private static NetworkInterceptor interceptor;
 
     private static WebDriver getDriver() {
         return DriverFactory.getDriver();
@@ -434,21 +436,35 @@ public class GenericActions {
      * traffic. If an API call fails, it logs the 'Crime Scene' URL and Status.
      * - RESULT: We distinguish between 'UI Rendering' bugs and 'Backend API' bugs.
      */
-    public static void startNetworkSniffer() {
-        if (getDriver() instanceof ChromeDriver) {
-            log.info("🕵️‍♂️ CDP: Initializing Network Sniffer...");
-            DevTools devTools = ((ChromeDriver) getDriver()).getDevTools();
-            devTools.createSession();
-            devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
 
-            devTools.addListener(Network.responseReceived(), response -> {
-                int status = response.getResponse().getStatus();
-                if (status >= 400) {
-                    String url = response.getResponse().getUrl();
-                    log.error("🚨 NETWORK_LEAK: URL [{}] returned status: {}", url, status);
-                    // This data will now appear in your Extent Report via the Listener bridge
+    public static void startNetworkSniffer() {
+        try {
+            log.info("🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...");
+
+            Filter failureReporter = (HttpHandler next) -> (req) -> {
+                HttpResponse res = next.execute(req);
+                if (res.getStatus() >= 400) {
+                    log.error("🚨 API_FAILURE: {} | Status: {}", req.getUri(), res.getStatus());
                 }
-            });
+                return res;
+            };
+
+            // If the JAR doesn't match the browser, this throws a RuntimeException
+            interceptor = new NetworkInterceptor(getDriver(), failureReporter);
+            log.info("✅ NETWORK: Sniffer active.");
+
+        } catch (Throwable t) {
+            // We catch THROWABLE to stop the "No-Op" error from reaching TestNG
+            log.warn("⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.");
+            interceptor = null;
+        }
+    }
+
+    // Add this method to clean up the leak
+    public static void stopNetworkSniffer() {
+        if (interceptor != null) {
+            interceptor.close();
+            log.info("🛑 NETWORK: Interceptor closed successfully.");
         }
     }
 

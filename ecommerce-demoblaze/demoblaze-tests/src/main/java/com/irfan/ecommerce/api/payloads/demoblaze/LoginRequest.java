@@ -1,4 +1,4 @@
-package com.irfan.ecommerce.api.payloads;
+package com.irfan.ecommerce.api.payloads.demoblaze;
 
 public class LoginRequest {
     private String username;

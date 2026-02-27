@@ -1,4 +1,4 @@
-package com.irfan.ecommerce.api.payloads;
+package com.irfan.ecommerce.api.payloads.demoblaze;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

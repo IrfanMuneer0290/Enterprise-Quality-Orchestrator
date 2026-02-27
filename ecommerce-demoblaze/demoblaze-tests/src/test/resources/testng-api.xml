@@ -11,8 +11,8 @@
             <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingTest"/>
              <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingPatchTest"/>
              <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest"/>
-
-        </classes>
+              <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingConcurrencyTest"/>
+         </classes>
     </test>
 
     </suite>

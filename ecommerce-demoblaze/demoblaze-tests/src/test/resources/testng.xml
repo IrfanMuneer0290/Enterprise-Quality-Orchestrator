@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org">
-<suite name="Walmart-Scale UI Regression" parallel="classes" thread-count="3">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Walmart-Scale Full-Stack Regression" parallel="tests" thread-count="2">
     
     <listeners>
         <listener class-name="com.irfan.ecommerce.util.AnnotationTransformer" />
@@ -13,10 +13,13 @@
             <class name="com.irfan.ecommerce.ui.tests.LoginTest" />
             <class name="com.irfan.ecommerce.ui.tests.ProductDetailTest" />
             <class name="com.irfan.ecommerce.ui.tests.CartWorkflowTest" />
-            <!-- 🛑 API Tests Commented Out Until Server Stabilizes 
-            <class name="com.irfan.ecommerce.ui.tests.IdempotencyTest" />
-            <class name="com.irfan.ecommerce.ui.tests.CartHybridTest" />
-            -->
         </classes>
     </test>
+
+    <test name="Restful-Booker API Validation">
+        <packages>
+            <package name="com.irfan.ecommerce.tests.api.restfulbooker" />
+        </packages>
+    </test>
+
 </suite>

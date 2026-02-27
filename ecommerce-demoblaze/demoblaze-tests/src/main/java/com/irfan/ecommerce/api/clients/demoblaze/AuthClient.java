@@ -20,47 +20,43 @@ public class AuthClient extends BaseApiClient {
         LoginRequest payload = new LoginRequest(username, password);
         String loginEndpoint = getProperty("api.endpoint.login");
 
-        logger.info("🔐 AUTH: Attempting login for: {}", username);
+        // 1. ATTEMPT LOGIN
+        Response response = given().spec(getRequestSpec()).body(payload).post(loginEndpoint);
+        
+        // 🚀 FAIL-FAST CHECK: Terminate if Server is Down (500)
+        if (response.getStatusCode() >= 500) {
+            logger.error("🛑 CRITICAL: Server error (HTTP {}) on Login. Terminating Test.", response.getStatusCode());
+            throw new RuntimeException("🛑 ENVIRONMENT_FAILURE: API returned 5xx. Possible Server Down.");
+        }
 
-        Response response = given()
-                .spec(getRequestSpec())
-                .body(payload)
-                .post(loginEndpoint);
-
-        // DEMOBLAZE TRICK: It often returns "Auth_token: ..." as a raw string 
-        // or inside the body. Let's try to find it dynamically.
         String body = response.asString();
-        String token = "";
 
-        if (body.contains("Auth_token")) {
-             token = body.replace("Auth_token: ", "").trim();
-        }
-
-        // 1. SELF-HEALING: If no token found, register
-        if (token.isEmpty() || body.contains("errorMessage")) {
-            logger.warn("⚠️ AUTH_FAILED: Attempting auto-registration for: {}", username);
-
-            given()
-                    .spec(getRequestSpec())
-                    .body(payload)
-                    .post("/signup"); // Standard DemoBlaze signup
-
-            // 2. RETRY
-            response = given()
-                    .spec(getRequestSpec())
-                    .body(payload)
-                    .post(loginEndpoint);
+        // 2. SELF-HEALING: If user doesn't exist, try to register
+        if (body.contains("User does not exist") || body.isEmpty()) {
+            logger.warn("⚠️ AUTH: User missing. Registering: {}", username);
+            Response signupRes = given().spec(getRequestSpec()).body(payload).post("/signup");
             
-            body = response.asString();
-            if (body.contains("Auth_token")) {
-                token = body.replace("Auth_token: ", "").trim();
+            // Check signup status too
+            if (signupRes.getStatusCode() >= 500) {
+                throw new RuntimeException("🛑 ENVIRONMENT_FAILURE: API returned 5xx on Signup.");
             }
+
+            // Retry Login after signup
+            response = given().spec(getRequestSpec()).body(payload).post(loginEndpoint);
+            body = response.asString();
         }
 
-        // 3. FINAL VALIDATION
+        // 3. ROBUST EXTRACTION
+        String token = "";
+        if (body.contains("Auth_token:")) {
+            token = body.replace("Auth_token:", "").trim();
+        } else if (!body.contains("errorMessage") && body.length() > 20) {
+            token = body.trim();
+        }
+
         if (token.isEmpty()) {
-            logger.error("🛑 CRITICAL: API Response Body: {}", body);
-            throw new RuntimeException("🛑 AUTH_FAILURE: Response did not contain Auth_token.");
+            logger.error("🛑 CRITICAL: API Response Body: [{}]", body);
+            throw new RuntimeException("🛑 AUTH_FAILURE: No Auth_token found in response.");
         }
 
         logger.info("✅ AUTH_SUCCESS: Token acquired.");

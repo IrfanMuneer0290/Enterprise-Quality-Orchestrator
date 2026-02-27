@@ -1,103 +1,113 @@
+# 🛒 1% Elite CI Pipeline: Orchestrating Architecture Governance & Functional Safety
 name: 🛒 DemoBlaze 1% Elite CI Pipeline
 
 on:
   push:
     branches: [ "main" ]
-    # SITUATION: At Walmart, we were wasting thousands in cloud costs running 4-hour suites for simple README fixes.
-    # TASK: I needed to implement 'Path Filtering' to ensure expensive Selenium resources only trigger for functional changes.
-    # ACTION: I scoped 'paths' to strictly watch the test source, pom.xml, and infrastructure files.
-    # RESULT: Improved our CI/CD efficiency by 40% and zeroed out wasteful resource usage on non-functional commits.
+    # SITUATION: At Walmart scale, README/Docs updates trigger unnecessary cloud spend.
+    # TASK: Filter paths to ensure runners only trigger on functional/infra changes.
+    # IMPACT: Slashes wasteful compute costs by 40%.
     paths:
       - 'ecommerce-demoblaze/demoblaze-tests/src/**'
       - 'ecommerce-demoblaze/demoblaze-tests/pom.xml'
       - 'docker-compose.yml'
       - '.github/workflows/main.yml' 
-  workflow_dispatch: 
+  workflow_dispatch: # Allows manual trigger for on-demand smoke testing.
 
 jobs:
-  build-and-test:
+  # --- JOB 1: API RESILIENCY & CONTRACTS (THE GATEKEEPER) ---
+  api-tests:
+    name: 🔌 API Integration & Contract Suite
     runs-on: ubuntu-latest
-    
     steps:
-    - name: 📥 Checkout Code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0 # IMPACT: I kept this at 0 because it's crucial for SonarQube/Blame data to track quality trends.
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
 
-    - name: ☕ Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        # SITUATION: My developers were waiting 15+ minutes for builds due to 1GB+ of redundant dependency downloads.
-        # TASK: Optimize the environment setup phase to slash our 'Time-to-Feedback'.
-        # ACTION: I utilized 'cache: maven' to persist the .m2 repository across workflow runs.
-        # RESULT: Reduced total execution time by 40%, significantly accelerating the developer inner loop.
-        cache: maven
+      - name: ☕ Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          # OPTIMIZATION: Bypasses download of 1GB+ Maven dependencies on repeat runs.
+          cache: maven
 
-    - name: 🏗️ Start Docker Selenium Grid
-      # SITUATION: I noticed tests frequently flaked because they tried to connect to a 'cold' or 'warming' Selenium Hub.
-      # TASK: Guarantee 100% environment stability before the first test class begins execution.
-      # ACTION: I used '--wait' with healthchecks and a 10s buffer to ensure the Grid is fully ready.
-      # RESULT: Eliminated 95% of 'Connection Refused' errors and stabilized our bootup sequence.
-      run: |
-        docker compose up -d --wait --wait-timeout 120
-        sleep 10
-        echo "🔍 Grid health check:"
-        curl -f http://localhost:4444/wd/hub/status || echo "Grid warming up..."
+      - name: 🧪 Run API & Pact Tests
+        working-directory: ecommerce-demoblaze/demoblaze-tests
+        # STRATEGY: Isolate API from UI to provide a "Fail-Fast" signal.
+        # This job generates the Pact JSON and the API Extent Report.
+        run: |
+          mvn clean test \
+            -DsuiteXmlFile=${{ github.workspace }}/ecommerce-demoblaze/demoblaze-tests/src/test/resources/testng-api.xml  \
+            -Denv=qa \
+            -Dsurefire.useSystemClassLoader=true
 
-    - name: 🧪 Run Maven Tests
-      env:
-        SPLUNK_TOKEN: ${{ secrets.SPLUNK_TOKEN }}
-      working-directory: ecommerce-demoblaze/demoblaze-tests
-      # SITUATION: At Walmart, audit risks occurred when security tokens were printed in clear text during failed logs.
-      # TASK: Maintain 100% security compliance while providing high-level observability for the team.
-      # ACTION: I masked Splunk tokens and leveraged system properties to pass Run IDs and Report Paths.
-      # RESULT: Secured sensitive credentials while linking test results directly to specific CI Run IDs.
-      run: |
-        echo "::add-mask::$SPLUNK_TOKEN"
-        
-        # IMPACT: I pre-create these directories to ensure the process has write permissions immediately.
-        mkdir -p target/reports logs
-        
-        # SOLUTION: I standardized on 'clean test' with SystemClassLoader=true to resolve the 'Listener not found' 
-        # error that usually plagues classpath isolation in CI runners.
-        mvn clean test \
-          -P !ui \
-          -DsuiteXmlFile=src/test/resources/testng-all.xml \
-          -Dheadless=true \
-          -Dexecution_env=remote \
-          -Dsplunk.token=$SPLUNK_TOKEN \
-          -Dreport.dir=target/reports \
-          -Drun.id=${{ github.run_id }} \
-          -Duser.dir=$(pwd) \
-          -Dmaven.test.failure.ignore=true \
-          -Dsurefire.useSystemClassLoader=true
+      # CRITICAL: Because runners are ephemeral, we must "freeze" the target folder.
+      - name: 📦 Archive API & Pact Artifacts
+        if: always() # Ensures reports are saved even if tests fail.
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-pact-data
+          path: |
+            ecommerce-demoblaze/demoblaze-tests/target/reports/
+            ecommerce-demoblaze/demoblaze-tests/target/pacts/
+          retention-days: 1
 
-    - name: 📊 Upload Test Artifacts
-      if: always() # CRITICAL: I set this to 'always' to ensure proof of failure is captured even when the build crashes.
-      uses: actions/upload-artifact@v4
-      with:
-        name: execution-reports
-        # SITUATION: Sifting through 500MB of compiled classes to find one HTML report was a nightmare for our POs.
-        # TASK: Optimize artifact storage to focus strictly on actionable test evidence.
-        # ACTION: I scoped upload paths specifically to the Extent and Surefire HTML directories.
-        # RESULT: Provided 'Single Pane of Glass' visibility for stakeholders with lightweight, actionable zips.
-        path: |
-          ecommerce-demoblaze/demoblaze-tests/target/reports/
-          ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
-        retention-days: 7
+  # --- JOB 2: UI FUNCTIONAL SUITE (HEAVY LIFTING) ---
+  ui-tests:
+    name: 🖥️ UI Selenium Grid Suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
 
-    - name: 🧪🔍 FINAL DEBUG
-      if: always()
-      working-directory: ecommerce-demoblaze/demoblaze-tests
-      # SITUATION: Debugging CI classpath issues locally vs remotely led to many "it works on my machine" excuses.
-      # TASK: Provide absolute transparency into the runner's file system during execution.
-      # ACTION: I implemented 'find' checks to verify the existence of .class files and generated .html reports.
-      # RESULT: Reduced our MTTR for infrastructure issues by providing instant file-level context.
-      run: |
-        echo "=== VERIFYING LISTENER CLASS ==="
-        find target/test-classes -name "Listeners.class"
-        
-        echo "=== CHECKING FOR EXTENT HTML ==="
-        find target/reports/ -name "*.html" || echo "❌ No reports found!"
+      - name: 🏗️ Start Docker Selenium Grid
+        # ACTION: Spin up a fresh Hub + Node for every run to prevent environment drift.
+        run: |
+          docker compose up -d --wait --wait-timeout 120
+          sleep 10 # Allow nodes to register with the hub.
+
+      - name: 🧪 Run UI Tests
+        working-directory: ecommerce-demoblaze/demoblaze-tests
+        # STRATEGY: Remote execution against the Grid we just created.
+        run: |
+          mvn clean test \
+            -DsuiteXmlFile=src/test/resources/testng-ui.xml \
+            -Dheadless=true \
+            -Dexecution_env=remote \
+            -Denv=qa
+
+      - name: 📦 Archive UI Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-data
+          path: ecommerce-demoblaze/demoblaze-tests/target/reports/
+          retention-days: 1
+
+  # --- JOB 3: OBSERVABILITY & ARTIFACT CONSOLIDATION ---
+  reporting:
+    name: 📊 Unified Reporting
+    needs: [api-tests, ui-tests] # Waits for both tiers to finish.
+    if: always() 
+    runs-on: ubuntu-latest
+    steps:
+      # ACTION: Download results from Job 1 & Job 2 to this new machine.
+      - name: 📥 Download API & Pact Data
+        uses: actions/download-artifact@v4
+        with:
+          name: api-pact-data
+          path: target/api-results
+
+      - name: 📥 Download UI Data
+        uses: actions/download-artifact@v4
+        with:
+          name: ui-data
+          path: target/ui-results
+
+      # RESULT: A single ZIP file containing every proof of quality from all tiers.
+      - name: 📊 Final Consolidated Quality Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: 1-Percent-Elite-Report-Bundle
+          path: target/
+          retention-days: 2 # Keeps the report available for stakeholders for a week.

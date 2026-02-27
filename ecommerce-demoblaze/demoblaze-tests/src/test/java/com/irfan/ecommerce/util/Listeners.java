@@ -49,7 +49,6 @@ public class Listeners implements ITestListener {
 
     public void onTestSuccess(ITestResult result) {
         test.get().log(Status.PASS, "Validation Successful: Component behaving as expected.");
-         extent.flush(); 
     }
 
    /**
@@ -83,12 +82,12 @@ public class Listeners implements ITestListener {
                 currentTest.warning("System was unable to capture forensic screenshot: " + e.getMessage());
             }
         }
-        extent.flush();
     }
 
     public void onFinish(ITestContext context) {
-        extent.flush();
-        // Clear ThreadLocal to prevent memory leaks in long-running CI agents
+       if (extent != null) {
+            extent.flush();
+        }
         test.remove();
     }
 

@@ -66,4 +66,11 @@ public class ExtentManager {
 
         return extent;
     }
+
+    public static void flush() {
+    if (extent != null) {
+        extent.flush();
+        System.out.println("📊 EXTENT: Report flushed to target/reports/index.html");
+    }
+}
 }

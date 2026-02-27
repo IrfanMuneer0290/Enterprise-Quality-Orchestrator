@@ -42,4 +42,24 @@ public class DataGenerator {
             faker.food().dish()
         );
     }
+
+
+    public static BookingRequest createFakeBooking() {
+        // Generate random dates for check-in and check-out
+        String checkin = sdf.format(faker.date().future(10, TimeUnit.DAYS));
+        String checkout = sdf.format(faker.date().future(20, TimeUnit.DAYS));
+
+        // Create the nested dates object (POJO)
+        BookingRequest.BookingDates dates = new BookingRequest.BookingDates(checkin, checkout);
+
+        // Return the full booking payload
+        return new BookingRequest(
+            faker.name().firstName(),
+            faker.name().lastName(),
+            faker.number().numberBetween(100, 500),
+            true,
+            dates,
+            "Breakfast"
+        );
+    }
 }

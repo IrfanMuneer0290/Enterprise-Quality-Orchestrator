@@ -3543,3 +3543,198 @@ Session ID: 4eef9dd168a6595a3e4456143955df7c
 2026-02-27 07:12:28 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🧹 Initiating cleanup for Booking ID: 661
 2026-02-27 07:12:28 [TestNG-test-Restful-Booker E2E Flows-1] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 661
 2026-02-27 07:12:29 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - ✅ Environment state restored successfully.
+2026-02-27 07:37:57 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:37:59 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:37:59 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:38:01 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:38:01 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🎭 Dynamic Test Data Generated for: Daniel Torphy
+2026-02-27 07:38:01 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 07:38:01 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Daniel",
+  "lastname" : "Torphy",
+  "totalprice" : 144,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-02",
+    "checkout" : "2026-03-07"
+  },
+  "additionalneeds" : "Tacos"
+}
+2026-02-27 07:38:03 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - ✅ Created Booking ID: 3587
+2026-02-27 07:38:03 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 🔐 AUTH: Fetching token using AuthRequest POJO...
+2026-02-27 07:38:04 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🧹 Initiating cleanup for Booking ID: 3587
+2026-02-27 07:38:04 [TestNG-test-Restful-Booker E2E Flows-1] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 3587
+2026-02-27 07:38:06 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - ✅ Environment state restored successfully.
+2026-02-27 07:47:30 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:47:32 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:47:32 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🚀 Starting testUpdateBooking flow...
+2026-02-27 07:47:32 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 07:47:32 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Violette",
+  "lastname" : "Wisozk",
+  "totalprice" : 123,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-06",
+    "checkout" : "2026-02-28"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 07:47:34 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 📜 Schema Validation Passed for ID: 3270
+2026-02-27 07:47:34 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:47:35 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:47:35 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 🔐 AUTH: Fetching token using AuthRequest POJO...
+2026-02-27 07:47:38 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - ✅ Update Successful for ID: 3270
+2026-02-27 07:47:38 [TestNG-test-Restful-Booker E2E Flows-1] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 3270
+2026-02-27 07:47:40 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🗑️ Cleanup: Deleted Booking ID: 3270
+2026-02-27 07:48:29 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:48:31 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:48:31 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:48:32 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:48:32 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🚀 Starting testUpdateBooking flow...
+2026-02-27 07:48:32 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 07:48:32 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 07:48:32 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Wen",
+  "lastname" : "Barton",
+  "totalprice" : 209,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-03",
+    "checkout" : "2026-03-08"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 07:48:32 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Elden",
+  "lastname" : "Bernier",
+  "totalprice" : 349,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-03",
+    "checkout" : "2026-03-08"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 07:48:34 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:48:34 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 📜 Schema Validation Passed for ID: 3788
+2026-02-27 07:48:35 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:48:35 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 🔐 AUTH: Fetching token using AuthRequest POJO...
+2026-02-27 07:48:38 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - ✅ Update Successful for ID: 3788
+2026-02-27 07:48:38 [TestNG-test-Restful-Booker E2E Flows-1] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 3788
+2026-02-27 07:48:38 [TestNG-test-Restful-Booker E2E Flows-2] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 3787
+2026-02-27 07:48:40 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🗑️ Cleanup: Deleted Booking ID: 3788
+2026-02-27 07:53:49 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:53:51 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:53:51 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:53:53 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:53:53 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🚀 Starting testUpdateBooking flow...
+2026-02-27 07:53:53 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 07:53:53 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 07:53:53 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Eduardo",
+  "lastname" : "Bogan",
+  "totalprice" : 394,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-07",
+    "checkout" : "2026-03-03"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 07:53:53 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Kareem",
+  "lastname" : "Schoen",
+  "totalprice" : 262,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-03",
+    "checkout" : "2026-03-08"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 07:53:55 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:53:55 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 📜 Schema Validation Passed for ID: 1675
+2026-02-27 07:53:56 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:53:56 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 🔐 AUTH: Fetching token using AuthRequest POJO...
+2026-02-27 07:53:59 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - ✅ Update Successful for ID: 1675
+2026-02-27 07:53:59 [TestNG-test-Restful-Booker E2E Flows-1] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 1675
+2026-02-27 07:53:59 [TestNG-test-Restful-Booker E2E Flows-2] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 1674
+2026-02-27 07:54:01 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🗑️ Cleanup: Deleted Booking ID: 1675
+2026-02-27 07:54:32 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:54:34 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:54:34 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:54:36 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:54:36 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:54:37 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:54:37 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🚀 Starting testUpdateBooking flow...
+2026-02-27 07:54:37 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 07:54:37 [TestNG-test-Restful-Booker E2E Flows-3] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest - 🚀 Idempotency Test: Sending Request 1 with ID: REQ-913e2525-dd5b-4f18-8ef1-d867759d40df
+2026-02-27 07:54:37 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 07:54:37 [TestNG-test-Restful-Booker E2E Flows-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 07:54:37 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Malcom",
+  "lastname" : "Simonis",
+  "totalprice" : 222,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-03",
+    "checkout" : "2026-03-05"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 07:54:37 [TestNG-test-Restful-Booker E2E Flows-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Tyler",
+  "lastname" : "Gutmann",
+  "totalprice" : 254,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-03",
+    "checkout" : "2026-03-05"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 07:54:37 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Deidre",
+  "lastname" : "Beatty",
+  "totalprice" : 401,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-05",
+    "checkout" : "2026-03-15"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 07:54:39 [TestNG-test-Restful-Booker E2E Flows-3] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest - 🔄 Idempotency Test: Retrying identical Request 2 with same ID: REQ-913e2525-dd5b-4f18-8ef1-d867759d40df
+2026-02-27 07:54:39 [TestNG-test-Restful-Booker E2E Flows-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 07:54:39 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:54:39 [TestNG-test-Restful-Booker E2E Flows-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Tyler",
+  "lastname" : "Gutmann",
+  "totalprice" : 254,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-03",
+    "checkout" : "2026-03-05"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 07:54:39 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 📜 Schema Validation Passed for ID: 2039
+2026-02-27 07:54:41 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:54:41 [TestNG-test-Restful-Booker E2E Flows-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 🔐 AUTH: Fetching token using AuthRequest POJO...
+2026-02-27 07:54:41 [TestNG-test-Restful-Booker E2E Flows-3] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest - Result: ID1=2038, ID2=2056
+2026-02-27 07:54:41 [TestNG-test-Restful-Booker E2E Flows-3] WARN  com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest - ⚠️ NOTICE: API created a duplicate. Not strictly idempotent by X-Request-ID.
+2026-02-27 07:54:44 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - ✅ Update Successful for ID: 2039
+2026-02-27 07:54:44 [TestNG-test-Restful-Booker E2E Flows-1] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 2039
+2026-02-27 07:54:44 [TestNG-test-Restful-Booker E2E Flows-2] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 2040
+2026-02-27 07:54:45 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🗑️ Cleanup: Deleted Booking ID: 2039

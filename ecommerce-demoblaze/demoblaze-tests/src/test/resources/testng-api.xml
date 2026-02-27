@@ -2,13 +2,16 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Restful-Booker API Suite">
 
-<listeners>
-    <listener class-name="com.irfan.ecommerce.util.ExtentListeners"/>
-</listeners>
-
+ <listeners>
+        <listener class-name="com.irfan.ecommerce.util.AnnotationTransformer" />
+        <listener class-name="com.irfan.ecommerce.util.Listeners" />
+    </listeners>
     <test name="Restful-Booker E2E Flows">
         <classes>
             <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingTest"/>
+             <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingPatchTest"/>
+             <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest"/>
+
         </classes>
     </test>
 

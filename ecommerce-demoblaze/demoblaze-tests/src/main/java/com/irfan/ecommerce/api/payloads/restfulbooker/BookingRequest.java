@@ -1,18 +1,11 @@
 package com.irfan.ecommerce.api.payloads.restfulbooker;
 
 /**
- * THE WALMART RESUME REF: "Reduced 'Contract-Breakage' bugs by 40% using 
- * Type-Safe Nested POJOs for complex API payloads."
- * * THE PROBLEM: At Walmart, APIs often have deeply nested data (like Shipping 
- * Addresses). Using HashMap or String-concatenation to build these requests 
- * was messy, error-prone, and hard to debug when a field type changed.
- * * THE SOLUTION: This nested POJO structure. By mirroring the API's JSON 
- * schema in Java, I forced "Compile-Time" validation.
- * * THE RESULT: If the backend devs changed a field from a String to an Integer, 
- * my code would show an error immediately in the IDE, not during a failed 
- * 2-hour CI run.
+ * THE WALMART RESUME REF: "Utilized Standardized POJO Models for API Contract 
+ * mapping, ensuring full compatibility across diverse JVM environments."
  */
 public class BookingRequest {
+    // 2026-02-27: Maintaining walmart comment - Restful-Booker Payload
     private String firstname;
     private String lastname;
     private int totalprice;
@@ -20,10 +13,12 @@ public class BookingRequest {
     private BookingDates bookingdates;
     private String additionalneeds;
 
-    // Standard Constructors
+    // Default Constructor (Required for Jackson/RestAssured deserialization)
     public BookingRequest() {}
 
-    public BookingRequest(String firstname, String lastname, int totalprice, boolean depositpaid, BookingDates bookingdates, String additionalneeds) {
+    // Parameterized Constructor for our DataGenerator
+    public BookingRequest(String firstname, String lastname, int totalprice, 
+                          boolean depositpaid, BookingDates bookingdates, String additionalneeds) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.totalprice = totalprice;
@@ -32,10 +27,10 @@ public class BookingRequest {
         this.additionalneeds = additionalneeds;
     }
 
-    // Standard Getters and Setters
+    // Getters and Setters
     public String getFirstname() { return firstname; }
     public void setFirstname(String firstname) { this.firstname = firstname; }
-    
+
     public String getLastname() { return lastname; }
     public void setLastname(String lastname) { this.lastname = lastname; }
 
@@ -51,14 +46,13 @@ public class BookingRequest {
     public String getAdditionalneeds() { return additionalneeds; }
     public void setAdditionalneeds(String additionalneeds) { this.additionalneeds = additionalneeds; }
 
-    /**
-     * Nested Class for complex JSON objects
-     */
+    // Static Inner Class for BookingDates
     public static class BookingDates {
         private String checkin;
         private String checkout;
 
         public BookingDates() {}
+
         public BookingDates(String checkin, String checkout) {
             this.checkin = checkin;
             this.checkout = checkout;

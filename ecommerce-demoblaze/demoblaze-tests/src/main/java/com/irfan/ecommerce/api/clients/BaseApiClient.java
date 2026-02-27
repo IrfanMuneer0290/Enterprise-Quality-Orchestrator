@@ -13,6 +13,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.UUID;
+
+import static io.restassured.RestAssured.baseURI;
 import static org.hamcrest.Matchers.lessThan;
 
 /**
@@ -96,13 +98,20 @@ public abstract class BaseApiClient {
     /**
      * 🆔 getRequestSpec: The "Traceability Injector"
      */
-    protected RequestSpecification getRequestSpec() {
+    protected RequestSpecification getRequestSpec(String requestId) {
         return new RequestSpecBuilder()
-                .addHeader("X-Request-ID", UUID.randomUUID().toString())
+                .setBaseUri(baseURI)
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Accept", "application/json") //
+                .addHeader("X-Request-ID", requestId)
                 .addHeader("X-Project-Context", projectPrefix)
                 .addRequestSpecification(requestSpec)
                 .build();
     }
+
+    protected RequestSpecification getRequestSpec() {
+    return getRequestSpec(UUID.randomUUID().toString());
+}
 
     /**
  * THE WALMART RESUME REF: "Built a Namespace-Aware property wrapper 

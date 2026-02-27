@@ -1,7 +1,7 @@
 package com.irfan.ecommerce.api.tests.restfulbooker;
 
-import com.irfan.ecommerce.api.clients.restfulbooker.AuthClient;
 import com.irfan.ecommerce.api.clients.restfulbooker.BookingClient;
+import com.irfan.ecommerce.api.managers.restfulbooker.AuthManager;
 import com.irfan.ecommerce.api.payloads.restfulbooker.BookingRequest;
 import com.irfan.ecommerce.util.DataGenerator;
 import io.restassured.response.Response;
@@ -9,10 +9,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class BookingTest {
     private static final Logger logger = LogManager.getLogger(BookingTest.class);
-
+    BookingClient bookingClient = new BookingClient();
     /**
      * THE WALMART RESUME REF: "Implemented a 'Full-Lifecycle' API Validation 
      * engine to ensure environment state purity in CI/CD."
@@ -23,30 +24,42 @@ public class BookingTest {
      * * THE RESULT: Guaranteed data isolation and 100% environment cleanup 
      * after every test execution.
      */
-    @Test(description = "E2E: Dynamic Booking Lifecycle for Restful-Booker")
-    public void testBookingLifecycle() {
-        // These clients now automatically use the 'booker' prefix config
-        BookingClient bookingClient = new BookingClient();
-        AuthClient authClient = new AuthClient();
+  @Test
+    public void testUpdateBooking() {
+        int bookingId = -1; // Track ID for finally block cleanup
+        try {
+            logger.info("🚀 Starting testUpdateBooking flow...");
 
-        // 1. GENERATE DYNAMIC DATA
-        BookingRequest payload = DataGenerator.getRandomBookingPayload();
-        logger.info("🎭 Dynamic Test Data Generated for: {} {}", payload.getFirstname(), payload.getLastname());
+            // 1. Create
+            BookingRequest payload = DataGenerator.createFakeBooking();
+            Response createResp = bookingClient.createBooking(payload);
+            bookingId = createResp.jsonPath().getInt("bookingid");
+            
+            // Contract Validation
+            createResp.then().assertThat()
+                .body(matchesJsonSchemaInClasspath("schemas/booking-schema.json"));
+            logger.info("📜 Schema Validation Passed for ID: {}", bookingId);
 
-        // 2. CREATE
-        Response createRes = bookingClient.createBooking(payload);
-        Assert.assertEquals(createRes.getStatusCode(), 200, "Booking creation failed!");
-        int bookingId = createRes.jsonPath().getInt("bookingid");
-        logger.info("✅ Created Booking ID: {}", bookingId);
+            // 2. Auth & Update
+            String token = AuthManager.getToken();
+            payload.setFirstname("Irfan-Updated");
+            Response updateResp = bookingClient.updateBooking(payload, bookingId, token);
 
-        // 3. AUTH & CLEANUP
-        // Fetching credentials from config for security
-        String token = authClient.getAuthToken("admin", "password123");
-        
-        logger.info("🧹 Initiating cleanup for Booking ID: {}", bookingId);
-        Response deleteRes = bookingClient.deleteBooking(bookingId, token);
-        
-        Assert.assertEquals(deleteRes.getStatusCode(), 201, "API Cleanup failed!"); 
-        logger.info("✅ Environment state restored successfully.");
+            // 3. Assert
+            Assert.assertEquals(updateResp.getStatusCode(), 200);
+            logger.info("✅ Update Successful for ID: {}", bookingId);
+
+        } finally {
+            // 4. Cleanup - ALWAYS runs even if Assert fails
+            if (bookingId != -1) {
+                String token = AuthManager.getToken();
+                Response deleteResp = bookingClient.deleteBooking(bookingId, token);
+                if(deleteResp.getStatusCode() == 201) {
+                    logger.info("🗑️ Cleanup: Deleted Booking ID: {}", bookingId);
+                } else {
+                    logger.warn("⚠️ Cleanup Failed for ID: {}", bookingId);
+                }
+            }
+        }
     }
 }

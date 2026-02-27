@@ -38,6 +38,20 @@ public class BookingClient extends BaseApiClient {
         return response;
     }
 
+    public Response updateBooking(BookingRequest payload, int bookingId, String token) {
+        return given().spec(getRequestSpec())
+                .header("Cookie", "token=" + token) // Booker uses Cookies for Auth
+                .body(payload)
+                .put(getProperty("api.endpoint.booking") + "/" + bookingId);
+    }
+
+    public Response patchBooking(Object payload, int bookingId, String token) {
+    return given().spec(getRequestSpec())
+            .header("Cookie", "token=" + token)
+            .body(payload)
+            .patch(getProperty("api.endpoint.booking") + "/" + bookingId);
+}
+
     public Response deleteBooking(int bookingId, String token) {
         String endpoint = getProperty("api.endpoint.booking") + "/" + bookingId;
         

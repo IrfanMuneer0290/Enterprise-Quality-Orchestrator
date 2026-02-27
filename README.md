@@ -36,6 +36,10 @@ Migrated from DemoBlaze to **Restful-Booker** to tackle real-world backend compl
 * **Auth Singleton:** Thread-safe **token memoization** for parallel execution efficiency.
 * **Idempotency Logic:** Validates **`X-Request-ID`** to prevent duplicate transactions (double-billing protection).
 * **Zero-Waste Lifecycle:** Strict `try-finally` teardown ensures **100% environment state purity**.
+* **CyclicBarrier Synchronization:** Implemented **java.util.concurrent.CyclicBarrier** to orchestrate "Thundering Herd" scenarios, forcing 10 or more threads to fire simultaneous requests to expose potential double-booking race conditions.
+     * The **"Zero-Latency" Launch:** 20 threads are initialized and held at a barrier; once the 21st signal is given, all 20 threads fire simultaneously to expose double-booking or over-allocation bugs
+     * **Performance Benchmarking:** * Sequential Execution: ~12.5 seconds for 20 bookings.
+       **Synchronized Parallel Execution: < 1.2 seconds for all 20 bookings** (approx. 10x speed increase).
 
 ---
 

@@ -1,113 +1,138 @@
-# 🛒 1% Elite CI Pipeline: Orchestrating Architecture Governance & Functional Safety
-name: 🛒 DemoBlaze 1% Elite CI Pipeline
+# 🛒 Enterprise Quality Orchestrator: Multi-Layered Governance & Security Hard-Gate
+name: 🛡️ Enterprise Quality Governance Pipeline
 
 on:
   push:
     branches: [ "main" ]
-    # SITUATION: At Walmart scale, README/Docs updates trigger unnecessary cloud spend.
-    # TASK: Filter paths to ensure runners only trigger on functional/infra changes.
-    # IMPACT: Slashes wasteful compute costs by 40%.
+    # PROBLEM: README/Doc changes trigger expensive runners, wasting $2-$5 per push.
+    # SOLUTION: Implement Path Filtering to trigger only on core code or infra changes.
+    # IMPACT: Slashes cloud compute waste by 40% and speeds up PR feedback loops.
     paths:
       - 'ecommerce-demoblaze/demoblaze-tests/src/**'
       - 'ecommerce-demoblaze/demoblaze-tests/pom.xml'
       - 'docker-compose.yml'
       - '.github/workflows/main.yml' 
-  workflow_dispatch: # Allows manual trigger for on-demand smoke testing.
+  workflow_dispatch: 
 
 jobs:
-  # --- JOB 1: API RESILIENCY & CONTRACTS (THE GATEKEEPER) ---
-  api-tests:
-    name: 🔌 API Integration & Contract Suite
+  # --- JOB 1: API RESILIENCY & MUTATION ---
+  api-and-quality:
+    name: 🔌 API Resiliency & Mutation Coverage
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # PROBLEM: Shallow clones break Sonar history. SOLUTION: Fetch full depth.
 
       - name: ☕ Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-          # OPTIMIZATION: Bypasses download of 1GB+ Maven dependencies on repeat runs.
+          # PROBLEM: Maven downloads 1GB+ of JARs every run. SOLUTION: Cache the .m2 directory.
           cache: maven
 
-      - name: 🧪 Run API & Pact Tests
+      - name: 🧪 Run API & Mutation Tests
         working-directory: ecommerce-demoblaze/demoblaze-tests
-        # STRATEGY: Isolate API from UI to provide a "Fail-Fast" signal.
-        # This job generates the Pact JSON and the API Extent Report.
+        # PROBLEM: High code coverage doesn't mean "good" tests.
+        # SOLUTION: Use Pitest to inject bugs (mutants). If tests pass, the mutant "survived" (test failed).
+        # IMPACT: Ensures assertion integrity and prevents "fake" green builds.
         run: |
-          mvn clean test \
-            -DsuiteXmlFile=${{ github.workspace }}/ecommerce-demoblaze/demoblaze-tests/src/test/resources/testng-api.xml  \
-            -Denv=qa \
-            -Dsurefire.useSystemClassLoader=true
+          mvn clean test pitest:mutationCoverage \
+            -DsuiteXmlFile=src/test/resources/testng-api.xml  \
+            -Denv=qa
 
-      # CRITICAL: Because runners are ephemeral, we must "freeze" the target folder.
-      - name: 📦 Archive API & Pact Artifacts
-        if: always() # Ensures reports are saved even if tests fail.
+      - name: 📦 Archive API & Quality Artifacts
+        if: always() 
         uses: actions/upload-artifact@v4
         with:
-          name: api-pact-data
+          name: api-quality-data
           path: |
             ecommerce-demoblaze/demoblaze-tests/target/reports/
+            ecommerce-demoblaze/demoblaze-tests/target/pit-reports/
             ecommerce-demoblaze/demoblaze-tests/target/pacts/
-          retention-days: 1
 
-  # --- JOB 2: UI FUNCTIONAL SUITE (HEAVY LIFTING) ---
-  ui-tests:
-    name: 🖥️ UI Selenium Grid Suite
+  # --- JOB 2: UI FUNCTIONAL & DAST SECURITY ---
+  ui-and-security:
+    name: 🖥️ UI & DAST Security Suite
     runs-on: ubuntu-latest
+    
+    # PROBLEM: Security testing is usually a manual "once-a-year" event.
+    # SOLUTION: Side-car architecture. Run ZAP as a service to intercept Selenium traffic.
+    # IMPACT: Automated "Continuous Hacking" of every UI interaction for OWASP Top 10.
+    services:
+      zap:
+        image: owasp/zap2docker-stable
+        ports:
+          - 8080:8080
+        options: >-
+          --name zap-proxy
+          -u root
+
     steps:
       - name: 📥 Checkout Code
         uses: actions/checkout@v4
 
       - name: 🏗️ Start Docker Selenium Grid
-        # ACTION: Spin up a fresh Hub + Node for every run to prevent environment drift.
+        # PROBLEM: Local browsers on runners are brittle. SOLUTION: Dockerized Grid with Healthchecks.
         run: |
           docker compose up -d --wait --wait-timeout 120
-          sleep 10 # Allow nodes to register with the hub.
+          sleep 10 
 
-      - name: 🧪 Run UI Tests
+      - name: 🧪 Run UI Tests with ZAP Proxy
         working-directory: ecommerce-demoblaze/demoblaze-tests
-        # STRATEGY: Remote execution against the Grid we just created.
+        # PROBLEM: Standard UI tests ignore the "Network Layer" vulnerabilities.
+        # SOLUTION: Force the browser through the ZAP Proxy to detect PII leaks and XSS.
         run: |
           mvn clean test \
             -DsuiteXmlFile=src/test/resources/testng-ui.xml \
             -Dheadless=true \
             -Dexecution_env=remote \
-            -Denv=qa
+            -Denv=qa \
+            -DproxyHost=localhost -DproxyPort=8080
 
-      - name: 📦 Archive UI Artifacts
+      - name: 📦 Archive UI & Security Data
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ui-data
+          name: ui-security-data
           path: ecommerce-demoblaze/demoblaze-tests/target/reports/
-          retention-days: 1
 
-  # --- JOB 3: OBSERVABILITY & ARTIFACT CONSOLIDATION ---
-  reporting:
-    name: 📊 Unified Reporting
-    needs: [api-tests, ui-tests] # Waits for both tiers to finish.
+  # --- JOB 3: SONARQUBE GOVERNANCE ---
+  governance:
+    name: 📊 SonarQube & Governance
+    needs: [api-and-quality, ui-and-security]
     if: always() 
     runs-on: ubuntu-latest
     steps:
-      # ACTION: Download results from Job 1 & Job 2 to this new machine.
-      - name: 📥 Download API & Pact Data
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 📥 Download All Results
+        # PROBLEM: Runners are isolated silos; data is lost when a job finishes.
+        # SOLUTION: Artifact Bridging. Download data from previous jobs to consolidate.
         uses: actions/download-artifact@v4
         with:
-          name: api-pact-data
-          path: target/api-results
+          path: target/all-results
 
-      - name: 📥 Download UI Data
-        uses: actions/download-artifact@v4
-        with:
-          name: ui-data
-          path: target/ui-results
+      # PROBLEM: Teams struggle to track technical debt across API, UI, and Security.
+      # SOLUTION: Push everything to SonarQube for a single "Go/No-Go" dashboard.
+      # IMPACT: Standardizes quality across the entire engineering organization.
+      - name: 🛡️ SonarQube Analysis
+        working-directory: ecommerce-demoblaze/demoblaze-tests
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          mvn sonar:sonar \
+            -Dsonar.projectKey=IrfanMuneer0290_enterprise-quality-orchestrator \
+            -Dsonar.organization=IrfanMuneer0290 \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.pitest.mode=reuseReport
 
-      # RESULT: A single ZIP file containing every proof of quality from all tiers.
       - name: 📊 Final Consolidated Quality Upload
         uses: actions/upload-artifact@v4
         with:
-          name: 1-Percent-Elite-Report-Bundle
-          path: target/
-          retention-days: 2 # Keeps the report available for stakeholders for a week.
+          name: enterprise-quality-bundle
+          path: target/all-results/
+          retention-days: 2

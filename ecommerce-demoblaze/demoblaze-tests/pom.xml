@@ -29,6 +29,12 @@
         <log4j.version>2.20.0</log4j.version>
         <jackson.version>2.17.0</jackson.version>
         <suiteXmlFile>src/test/resources/testng-all.xml</suiteXmlFile>
+        <sonar.pitest.mode>reuseReport</sonar.pitest.mode>
+    <sonar.pitest.reportsDirectory>target/pit-reports</sonar.pitest.reportsDirectory>
+    <sonar.java.binaries>target/classes</sonar.java.binaries>
+    <sonar.projectKey>IrfanMuneer0290_enterprise-quality-orchestrator</sonar.projectKey>
+<sonar.organization>IrfanMuneer0290</sonar.organization>
+<sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <profiles>
@@ -213,9 +219,57 @@
         </properties>
         <systemPropertyVariables>
             <report.dir>${project.build.directory}/reports</report.dir>
-            <pact.rootDir>${project.build.directory}/pacts</pact.rootDir>
         </systemPropertyVariables>
     </configuration>
+</plugin>
+<plugin>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>1.15.3</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-testng-plugin</artifactId>
+            <version>0.1</version>
+        </dependency>
+    </dependencies>
+    <configuration>
+        <targetClasses>
+            <param>com.irfan.ecommerce.*</param>
+        </targetClasses>
+        <targetTests>
+            <param>com.irfan.ecommerce.*</param>
+        </targetTests>
+        <outputFormats>
+            <value>HTML</value>
+            <value>XML</value> </outputFormats>
+    </configuration>
+</plugin>
+
+<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.11</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>prepare-agent</goal>
+            </goals>
+        </execution>
+        <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+                <goal>report</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+
+<plugin>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.10.0.2594</version>
 </plugin>
         </plugins>
     </build>

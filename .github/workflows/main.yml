@@ -118,7 +118,9 @@ jobs:
             -Dsonar.projectKey=IrfanMuneer0290_Enterprise-Quality-Orchestrator \
             -Dsonar.organization=irfanmuneer0290 \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.pitest.mode=reuseReport
+            -Dsonar.pitest.mode=reuseReport \
+            -Dpitest.skip=true \
+            -DskipTests=true
 
       - name: 📊 Final Consolidated Quality Upload
         uses: actions/upload-artifact@v4

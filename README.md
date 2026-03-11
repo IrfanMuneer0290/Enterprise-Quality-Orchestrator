@@ -7,6 +7,14 @@
 
 This is a **production-grade QA governance engine** designed for high-stakes transactional environments. It establishes real "Hard Gates" in CI/CD pipelines, shifting the focus from simple execution to **Total System Observability and Cross-Service Governance**.
 
+
+---
+
+## 🏛️ Orchestra-Q: Sovereign Governance Framework (Stealth R&D)
+**This repository represents the tactical automation engine.** For the strategic **Sovereign Governance Layer** (Phases 1-12) including the **G1-G3 Hard Gates** designed for **UAE Law 45** compliance and **Java 21 Virtual Thread** orchestration, please request private access.
+
+📩 **Request Demo/Access:** (mailto:irfaanpashamuunir@gmail.com)  
+
 ---
 
 ## 🏗️ DevOps & CI/CD Infrastructure (The "Hard Gate")

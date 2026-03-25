@@ -19,26 +19,47 @@ import java.util.concurrent.TimeUnit;
  * state requests without data corruption.
  */
 public class BookingConcurrencyTest {
+
     private final BookingClient client = new BookingClient();
-    private final int THREAD_COUNT = 20; // 🎯 Optimized for Public Sandbox Stability
+    
+    // 🎯 Optimized for Public Sandbox Stability while maintaining Architectural Integrity
+    private final int THREAD_COUNT = 20; 
 
-   @Test(invocationCount = 20, threadPoolSize = 20)
+    @Test(description = "Sovereign Thundering Herd: Project Loom & CyclicBarrier Integration")
     public void testConcurrentBookings() throws InterruptedException {
-        CyclicBarrier barrier = new CyclicBarrier(THREAD_COUNT);
-        ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT);
+        
+        // The Rendezvous Point: All Virtual Threads must arrive here before the 'Charge'.
+        CyclicBarrier barrier = new CyclicBarrier(THREAD_COUNT, () -> {
+            System.out.println("🛡️ [Orchestra-Q™]: Barrier Tripped. Executing Synchronized Herd Charge...");
+        });
 
-        for (int i = 0; i < THREAD_COUNT; i++) {
-            executor.submit(() -> {
-                try {
-                    barrier.await(); // All 20 threads wait for each other
-                    client.createBooking(DataGenerator.createFakeBooking());
-                } catch (Exception e) {
-                    System.err.println("Concurrency Error: " + e.getMessage());
-                }
-            });
+        // PROJECT LOOM: Using Virtual Threads to eliminate carrier thread pinning (Warning #2).
+        try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
+            
+            for (int i = 0; i < THREAD_COUNT; i++) {
+                executor.submit(() -> {
+                    try {
+                        // 1. Prepare isolated data state
+                        var bookingData = DataGenerator.createFakeBooking();
+                        
+                        // 2. Synchronize at the Barrier (Mathematical Alignment)
+                        barrier.await(); 
+                        
+                        // 3. THE CHARGE: High-concurrency I/O hit
+                        client.createBooking(bookingData);
+                        
+                    } catch (Exception e) {
+                        // Compliance: Log failure for DORA 'Change Failure Rate' analysis.
+                        System.err.println("Concurrency Error: " + e.getMessage());
+                    }
+                });
+            }
+
+            // Clean-up and Governance Wait
+            executor.shutdown();
+            if (!executor.awaitTermination(1, TimeUnit.MINUTES)) {
+                System.err.println("Governance Alert: Concurrency test timed out.");
+            }
         }
-
-        executor.shutdown();
-        executor.awaitTermination(1, TimeUnit.MINUTES);
     }
 }

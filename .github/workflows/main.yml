@@ -1,5 +1,5 @@
-/* [Orchestra-Q™ Core]: 2026-03-03 Compliance Gates. 
-*   High-Precision Observability with SovereignMath Integration.
+/* [Orchestra-Q™ Core]: 2026-03-03. Compliance Gates. 
+*  High-Precision Observability with SovereignMath Integration.
 * © 2026 Orchestra-Q. All Rights Reserved.
 */
 
@@ -23,7 +23,7 @@
 #   "False Positive" investigations through infrastructure health checks.
 ########################################################################################
 
-name: 🛡️ Enterprise Quality Governance Pipeline
+name: 🛡️ Enterprise Quality Governance Pipeline (Sovereign Edition)
 
 on:
   push:
@@ -31,30 +31,20 @@ on:
   workflow_dispatch: 
 
 jobs:
-  # --- JOB 1: API RESILIENCY ---
+  # --- JOB 1: API RESILIENCY (DOCKERIZED) ---
   api-testing:
     name: 🔌 API Functional & Resiliency
     # PROBLEM: Backend regressions often block frontend progress, causing "Integration Hell."
-    # SOLUTION: Isolated API testing using Maven/TestNG to validate contracts before UI execution.
+    # SOLUTION: Isolated API testing using the Dockerized Runner to validate contracts before UI execution.
     # RESULT: 40% faster feedback loop by catching logic errors before the heavy UI layer.
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout Code
         uses: actions/checkout@v4
 
-      - name: ☕ Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: maven
-
-      - name: 🧪 Run API Tests
-        working-directory: ecommerce-demoblaze/demoblaze-tests
+      - name: 🧪 Run API Tests via Docker
         run: |
-          mvn clean test \
-            -DsuiteXmlFile=src/test/resources/testng-api.xml \
-            -Denv=qa
+          docker-compose run -e SHARD_ID=api -e ENV_TARGET=qa test-runner
 
       - name: 📦 Archive API Artifacts
         if: always() 
@@ -63,12 +53,13 @@ jobs:
           name: api-results
           path: ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
 
-  # --- JOB 2: UI & DAST (SCALED & SHARDED) ---
+  # --- JOB 2: UI & DAST (SCALED, SHARDED, & DOCKERIZED) ---
   ui-and-security:
     name: 🖥️ UI & DAST - Shard ${{ matrix.shard }}
     # PROBLEM: A single 4-hour "Heavy" runner is expensive, slow, and a "Single Point of Failure."
     # SOLUTION: I implemented Matrix Sharding to split the suite into 4 parallel 1-hour streams.
     # RESULT: Total time dropped from 4h to 1h; Retries are localized only to the failing shard.
+    needs: [api-testing]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false # PROBLEM: One shard failing shouldn't kill the other 3 healthy shards.
@@ -79,9 +70,9 @@ jobs:
       - name: 📥 Checkout Code
         uses: actions/checkout@v4
 
-      - name: 🛡️ Start ZAP Proxy
+      - name: 🛡️ Start ZAP Proxy Sidecar
         # PROBLEM: Functional tests often ignore security, leaving "Blind Spots" in the release.
-        # SOLUTION: Integrated ZAP DAST as a sidecar proxy to scan traffic while UI tests execute.
+        # SOLUTION: Integrated ZAP DAST as a sidecar container to scan traffic while UI tests execute.
         # RESULT: Achieved "Security-as-Code," identifying vulnerabilities (XSS/SQLi) during functional runs.
         run: |
           docker run -d --name zap-proxy -p 8080:8080 \
@@ -89,43 +80,40 @@ jobs:
             --user root \
             ghcr.io/zaproxy/zaproxy:stable \
             zap.sh -daemon -host 0.0.0.0 -port 8080 -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true
-          
-          # PROBLEM: Tests fail if they start before the Proxy is fully healthy.
-          # SOLUTION: Implemented a 'curl' healthcheck loop with a 60s safety timeout.
-          # RESULT: 100% startup reliability for the security interceptor.
           timeout 60s bash -c 'until curl -s http://localhost:8080; do sleep 5; done'
 
-      - name: 🧪 Run Sharded UI Tests
-        working-directory: ecommerce-demoblaze/demoblaze-tests
+      - name: 🧪 Run Sharded UI Tests (Sovereign Docker Execution)
         # PROBLEM: Even with IRetryAnalyzer, a full JVM crash or Network drop kills the build.
-        # SOLUTION: Implemented a 'bash-level' retry loop with an intelligent Exit Code check.
+        # SOLUTION: Implemented a 'bash-level' retry loop with an intelligent Exit Code check inside Docker.
         # RESULT: The system retries for Infra issues but stops for real Code bugs, saving Cloud credits.
         run: |
           n=0
           until [ "$n" -ge 2 ]
           do
-             mvn clean test \
-               -DsuiteXmlFile=src/test/resources/testng-ui-shard-${{ matrix.shard }}.xml \
-               -Dheadless=true \
-               -Denv=qa \
-               -DproxyHost=localhost -DproxyPort=8080 && break
-             
-             # EXIT CODE 1 = Test Failure (Assertion). EXIT CODE 255 = System Crash.
-             if [ $? -eq 1 ]; then
-                echo "Logic failure detected. Passing to Governance for blocking."
-                exit 1
-             fi
+            docker-compose run \
+              -e SHARD_ID=${{ matrix.shard }} \
+              -e ENV_TARGET=qa \
+              -e HEADLESS=true \
+              -e proxyHost=zap-proxy -e proxyPort=8080 \
+              test-runner && break
 
-             n=$((n+1)) 
-             echo "Infra Failure on Shard ${{ matrix.shard }}. Retrying... (Attempt $n)"
-             sleep 20
+            # EXIT CODE 1 = Test Failure (Assertion). EXIT CODE 255 = System Crash.
+            if [ $? -eq 1 ]; then
+              echo "Logic failure detected. Passing to Governance for blocking."
+              exit 1
+            fi
+
+            n=$((n+1)) 
+            echo "Infra Failure on Shard ${{ matrix.shard }}. Retrying... (Attempt $n)"
+            sleep 20
           done
 
       - name: 📝 Generate ZAP Security Report
         if: always()
         run: |
           mkdir -p zap-reports
-          curl -X GET "http://localhost:8080/OTHER/core/other/htmlreport/" > zap-reports/security-report-${{ matrix.shard }}.html
+          docker exec zap-proxy zap-cli report -o /zap/report.html -f html
+          docker cp zap-proxy:/zap/report.html zap-reports/security-report-${{ matrix.shard }}.html
 
       - name: 📦 Archive Shard Results
         if: always()
@@ -134,38 +122,30 @@ jobs:
           name: ui-results-shard-${{ matrix.shard }}
           path: |
             ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
-            zap-reports/security-report-${{ matrix.shard }}.html
+            zap-reports/
 
   # --- JOB 3: SONARCLOUD GOVERNANCE ---
   governance:
     name: 📊 SonarCloud Governance
-    # PROBLEM: "Technical Debt" and low coverage lead to unmaintainable automation code.
-    # SOLUTION: Mandatory SonarCloud Quality Gate that blocks the pipeline if metrics are missed.
-    # RESULT: Guarantees 80%+ test coverage and Zero "High" security smells in the repo.
-    needs: [api-testing, ui-and-security]
+    needs: [ui-and-security]
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - name: ☕ Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-
       - name: 🛡️ SonarCloud Analysis
         working-directory: ecommerce-demoblaze/demoblaze-tests
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          mvn clean test-compile sonar:sonar \
-            -Dsonar.token=$SONAR_TOKEN \
-            -DskipTests=true
-
+        run: mvn clean test-compile sonar:sonar -Dsonar.token=$SONAR_TOKEN -DskipTests=true
+      
       - name: 🛑 SonarCloud Quality Gate Check
         uses: sonarsource/sonarqube-quality-gate-action@master
         timeout-minutes: 5
@@ -173,6 +153,9 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: 📊 Final Consolidated Quality Upload
+        # PROBLEM: Artifacts scattered across shards make auditing difficult for CTOs.
+        # SOLUTION: Consolidate all quality metrics into a single enterprise-ready bundle.
+        # RESULT: A 2026-ready DORA report repository for immediate compliance audit.
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -180,25 +163,20 @@ jobs:
           path: ecommerce-demoblaze/demoblaze-tests/target/
           retention-days: 2
 
-  # --- JOB 4: DOCKER BUILD & PUSH ---
+  # --- JOB 4: DOCKER DISTRIBUTION ---
   build-and-push:
     name: 🐳 Containerize & Distribute
-    # PROBLEM: Test suites are often host-dependent and hard to scale or share.
-    # SOLUTION: Build an immutable Docker Audit Image after all quality gates pass.
-    # RESULT: Deliver "Portable Audits"; can be run in any environment with one command.
     needs: [governance] 
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout Code
         uses: actions/checkout@v4
-
       - name: 🔑 Login to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: 🏗️ Build and Push Test Engine
+      - name: 🏗️ Build and Push
         uses: docker/build-push-action@v5
         with:
           context: .

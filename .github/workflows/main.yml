@@ -62,13 +62,22 @@ jobs:
             -Denv=qa \
             -DproxyHost=localhost -DproxyPort=8080
 
-      - name: 📦 Archive UI Data
+      # NEW: Generate the Security Report
+      - name: 📝 Generate ZAP Security Report
+        if: always()
+        run: |
+          mkdir -p zap-reports
+          # This calls the ZAP API to generate an HTML report of all alerts found
+          curl -X GET "http://localhost:8080/OTHER/core/other/htmlreport/" > zap-reports/security-report.html
+
+      - name: 📦 Archive UI & Security Data
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ui-results
-          # FIXED: Added the correct path relative to repository root
-          path: ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
+          name: ui-and-security-results
+          path: |
+            ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
+            zap-reports/security-report.html
 
   # --- JOB 3: SONARCLOUD GOVERNANCE ---
   governance:
@@ -96,7 +105,8 @@ jobs:
           mvn clean test-compile sonar:sonar \
             -Dsonar.token=$SONAR_TOKEN \
             -DskipTests=true
-        # NEW: This step pauses the pipeline until SonarCloud reports back
+
+      # NEW: This step pauses the pipeline until SonarCloud reports back
       - name: 🛑 SonarCloud Quality Gate Check
         uses: sonarsource/sonarqube-quality-gate-action@master
         timeout-minutes: 5

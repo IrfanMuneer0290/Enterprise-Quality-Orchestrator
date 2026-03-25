@@ -96,6 +96,12 @@ jobs:
           mvn clean test-compile sonar:sonar \
             -Dsonar.token=$SONAR_TOKEN \
             -DskipTests=true
+        # NEW: This step pauses the pipeline until SonarCloud reports back
+      - name: 🛑 SonarCloud Quality Gate Check
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: 📊 Final Consolidated Quality Upload
         if: always()

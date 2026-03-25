@@ -5,12 +5,7 @@ services:
     image: selenium/hub:4.25.0
     container_name: selenium-hub
     ports:
-      - "4442:4442"
-      - "4443:4443"
       - "4444:4444"
-    # PROBLEM: At Walmart, we faced 20% flakiness because tests started before the Hub was ready.
-    # SOLUTION: I implemented this native Docker Healthcheck to poll the Grid status URL.
-    # RESULT: Eliminated 100% of 'Grid Not Reachable' errors, ensuring a stable environment boot.
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:4444/status"]
       interval: 5s
@@ -19,17 +14,35 @@ services:
 
   chrome:
     image: selenium/node-chrome:4.25.0
-    # PROBLEM: We faced frequent browser 'Out of Memory' crashes during high-volume checkout testing.
-    # SOLUTION: I increased 'shm_size' to 2GB to support modern JS-heavy rendering.
-    # RESULT: Stabilized UI tests for 99.9% uptime, even during peak 5x traffic simulation.
     shm_size: 2gb
     depends_on:
       selenium-hub:
-        # PROBLEM: Nodes would fail to register if they tried to connect to a 'cold' Hub.
-        # SOLUTION: I used the 'service_healthy' condition to orchestrate a perfect startup sequence.
-        # RESULT: Zero manual intervention needed for the Grid to be 100% functional.
         condition: service_healthy
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+
+  # --- THE SOVEREIGN TEST RUNNER ---
+  # PROBLEM: Manually running 'mvn test' requires local Java/Maven setup and manual timing.
+  # SOLUTION: I integrated the Audit Engine directly into the Compose orchestration.
+  # RESULT: A "Single-Command Audit" (docker-compose up) that handles Grid boot, 
+  #         Security Proxying, and Test Execution automatically.
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: test-runner
+    depends_on:
+      selenium-hub:
+        condition: service_healthy
+    environment:
+      - SHARD_ID=1      # Change this to run different shards locally
+      - ENV_TARGET=qa
+      - HEADLESS=true
+      - REMOTE_URL=http://selenium-hub:4444/wd/hub
+    # PROBLEM: Test reports disappear when the container stops.
+    # SOLUTION: I mapped a Volume to persist reports to the host machine.
+    # RESULT: Instant access to ExtentReports and TestNG results on the dev machine.
+    volumes:
+      - ./ecommerce-demoblaze/demoblaze-tests/target:/app/target
